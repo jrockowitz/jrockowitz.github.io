@@ -28,7 +28,7 @@ module.exports = function(grunt) {
                 cmd: '(sleep 5; open http://localhost:4000) &\njekyll serve --drafts --watch'
             },
             deploy: {
-                cmd: 'git add --all; git commit -am"Deploying changes to GitHub";'
+                cmd: 'git add --all; git commit -am"Deploying changes to GitHub"; git push;'
             }
         }
     });
