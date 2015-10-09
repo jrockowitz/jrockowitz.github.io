@@ -1,7 +1,7 @@
 ---
 layout: page
 title: README.md
-permalink: /readme
+permalink: /readme/
 ---
 
 # Jacob Rockowitz / The Big Blue House
@@ -34,8 +34,7 @@ permalink: /readme
 ## TODO
 
 - Experiment with Bootstrap.
-  - Setp base template 
-  - Setup style-guide
+  - style-guide.md 
 
 - Add and remove `environment: development` from _config.yml when grunt serve
   is called.
