@@ -29,7 +29,7 @@ module.exports = function(grunt) {
                 cmd: '(sleep 5; open http://localhost:4000) &; jekyll serve --drafts --watch'
             },
             deploy: {
-                cmd: 'echo "TODO: Commit and push changes to GitHub'
+                cmd: 'git add --all; git commit -am"Deploying changes to GitHub";'
             }
         }
     });
