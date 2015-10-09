@@ -1,6 +1,5 @@
 module.exports = function(grunt) {
 
-
     grunt.initConfig({
         // Get project configuration from package.json.
         pkg: require('./package.json'),
@@ -18,7 +17,7 @@ module.exports = function(grunt) {
                 files: {
                     'js/main.min.js': 'js/main.js'
                 }
-            },
+            }
         },
         exec: {
             build: {
@@ -38,8 +37,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-exec');
 
-    grunt.registerTask('default', [ 'uglify', 'concat', 'exec:build' ]);
-    grunt.registerTask('serve', [ 'uglify', 'concat', 'exec:serve' ]);
+    grunt.registerTask('default', [ 'concat', 'uglify', 'exec:build' ]);
+    grunt.registerTask('serve', [ 'concat', 'uglify', 'exec:serve' ]);
     grunt.registerTask('deploy', [ 'default', 'exec:deploy' ]);
 
 };
