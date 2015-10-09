@@ -12,6 +12,18 @@ module.exports = function(grunt) {
                 dest: 'assets/js/vendor.min.js'
             }
         },
+        copy: {
+            fonts: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: 'bower_components/bootstrap-sass-official/assets/fonts',
+                        src: ['**', '.**'],
+                        dest: 'fonts',
+                    }
+                ],
+            }
+        },
         uglify: {
             dist: {
                 files: {
@@ -34,11 +46,13 @@ module.exports = function(grunt) {
     });
 
     grunt.loadNpmTasks('grunt-contrib-concat');
+    grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-exec');
 
-    grunt.registerTask('default', [ 'concat', 'uglify', 'exec:build' ]);
-    grunt.registerTask('serve', [ 'concat', 'uglify', 'exec:serve' ]);
+    grunt.registerTask('build', [ 'copy', 'concat', 'uglify']);
+    grunt.registerTask('default', [ 'build', 'exec:build' ]);
+    grunt.registerTask('serve', [ 'build', 'exec:serve' ]);
     grunt.registerTask('deploy', [ 'default', 'exec:deploy' ]);
 
 };

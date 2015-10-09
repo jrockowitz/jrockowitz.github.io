@@ -12,6 +12,7 @@
     "bower": "*",
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-copy": "*",
     "grunt-contrib-uglify": "*",
     "grunt-exec": "*"
   },

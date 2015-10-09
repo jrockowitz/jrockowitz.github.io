@@ -231,7 +231,6 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 - [GitHub Pages | Jekyll](http://jekyllrb.com/docs/github-pages/)
 - [Using Jekyll with Pages | GitHub](https://help.github.com/articles/using-jekyll-with-pages/)
 
-
 ### [Jekyll](http://jekyllrb.com)
 
 - [Documentation](http://jekyllrb.com/docs/home/)
@@ -247,6 +246,9 @@ Replace 'Hello World' with a boilerplate Jekyll site.
     - <http://getbootstrap.com/css/>
     - <http://bootswatch.com/default/>
     - <http://www.bootply.com/render/65566>
+
+- Tutorials
+   - [Bootstrap 3 Tutorial](http://www.w3schools.com/bootstrap/default.asp)
 
 ### HTML/Front-end tools
 
