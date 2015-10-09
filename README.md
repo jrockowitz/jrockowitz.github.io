@@ -1,8 +1,10 @@
 ---
 layout: page
-title: Jacob Rockowitz / The Big Blue House (README.md)
+title: README.md
 permalink: /readme
 ---
+
+# Jacob Rockowitz / The Big Blue House
 
 ## Site Information
 
