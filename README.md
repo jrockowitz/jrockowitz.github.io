@@ -1,6 +1,6 @@
 ---
 layout: page
-title: README.md
+title: README
 permalink: /readme/
 ---
 
@@ -198,6 +198,13 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
     open http://jrockowitz.github.io/readme
 
+
+### Build a style-guide/code snippet page 
+
+- [CSS](http://getbootstrap.com/css/): Global CSS settings, fundamental HTML 
+  elements styled and enhanced with extensible classes, and an advanced grid system.
+
+- http://getbootstrap.com/css/#type
 
 ### More Information about using Jekyll on GitHub Pages
     
