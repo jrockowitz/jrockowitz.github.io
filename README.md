@@ -4,8 +4,6 @@ title: README
 permalink: /readme/
 ---
 
-# Jacob Rockowitz / The Big Blue House
-
 ## Site Information
 
 - URL: <http://jrockowitz.github.io/>
@@ -36,6 +34,10 @@ permalink: /readme/
 - Experiment with Bootstrap.
   - style-guide.md 
 
+- Decide on page elemenst
+  - 2 column template
+  - https://getbootstrap.com/examples/grid/
+
 - Add and remove `environment: development` from _config.yml when grunt serve
   is called.
 
@@ -44,6 +46,10 @@ permalink: /readme/
 - Content
   - Merge About with Experience  
   
+## Questions
+
+- Best way tp extend bootstrap.
+
 
 ## Process/Tasks
 
