@@ -204,13 +204,22 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
     open http://jrockowitz.github.io/readme
 
-
 ### Build a style-guide/code snippet page 
 
 - [CSS](http://getbootstrap.com/css/): Global CSS settings, fundamental HTML 
   elements styled and enhanced with extensible classes, and an advanced grid system.
 
 - http://getbootstrap.com/css/#type
+
+### Remove Jekyll's Boilerplate SASS and HTML.
+
+- Clear _sass/base.scss and _sass/layout.scss.
+
+- Replace `%vertical-rhythm` mixin with `margin-bottom: .5em;` in  _syntax-highlighting.scss
+
+### Setup Bootstrap navbar
+
+- [Bootstrap Case: Adding a Navigation Bar](http://www.w3schools.com/bootstrap/bootstrap_case_navigation.asp)
 
 ### More Information about using Jekyll on GitHub Pages
     
