@@ -1,0 +1,66 @@
+/**
+ * Contains Bootstrap layout overrides.
+ */
+
+/**
+ * Body
+ */
+body {
+  margin: 80px $line-height-computed $line-height-computed $line-height-computed;
+  /* Mobile: Reduce margins and padding by 50%. */
+  @media (max-width: $screen-phone) {
+    margin: 60px ($line-height-computed/2) ($line-height-computed/2) ($line-height-computed/2);
+  }
+}
+
+/**
+ * Header
+ */
+
+/**
+ * Page
+ */
+.page {
+  max-width: $screen-desktop;
+  margin: 0 auto;
+}
+
+.page-header:first-child {
+  margin-top: 0;
+  h1 {
+    margin-top: 0;
+    small {
+      white-space: nowrap;
+    }
+  }
+}
+
+/* Remove padding from columns in Bootstrap 3 http://stackoverflow.com/questions/19562903/remove-padding-from-columns-in-bootstrap-3 */
+@media (max-width: $screen-phone) {
+  .page-content [class*="col-"] {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/**
+ * Footer
+ */
+.footer {
+  margin: $line-height-computed 0 0 0;
+  border-top: 1px solid $navbar-inverse-bg;
+  padding-top: $line-height-computed;
+
+  /* Mobile: Reduce margins and padding by 50%. */
+  @media (max-width: $screen-phone) {
+    margin: ($line-height-computed/2) 0 0 0;
+    padding-top: ($line-height-computed/2);
+  }
+
+  small {
+    @extend .page;
+    display: block;
+    text-align: center;
+  }
+}
+

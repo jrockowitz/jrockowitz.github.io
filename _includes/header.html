@@ -20,6 +20,7 @@
                   <span class="caret"></span></a>
                 <ul class="dropdown-menu">
                   <li><a href="{{ node.url | prepend: site.baseurl }}">{{ node.title }}</a></li>
+                  <li role="separator" class="divider"></li>
                   {% for link in node.links %}
                   <li><a href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a></li>
                   {% endfor %}

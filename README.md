@@ -34,7 +34,7 @@ permalink: /readme/
 - Experiment with Bootstrap.
   - style-guide.md 
 
-- Decide on page elemenst
+- Decide on page elements
   - 2 column template
   - https://getbootstrap.com/examples/grid/
 
@@ -219,14 +219,21 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
 ### Setup Bootstrap navbar
 
+- [Navbar](http://getbootstrap.com/components/#navbar)
 - [Bootstrap Case: Adding a Navigation Bar](http://www.w3schools.com/bootstrap/bootstrap_case_navigation.asp)
+
+### Setup Bootstrap grid
+
+- [Grid system](http://getbootstrap.com/css/#grid)
+- [Bootstrap Grids](http://www.w3schools.com/bootstrap/bootstrap_grid_basic.asp)
+
+### TODO: Setup Jekyll Pages
+
+- [How to change the default order pages in jekyll](http://stackoverflow.com/questions/13266369/how-to-change-the-default-order-pages-in-jekyll)
 
 ### More Information about using Jekyll on GitHub Pages
     
 - [Repository metadata on GitHub Pages](https://help.github.com/articles/repository-metadata-on-github-pages/)
-
-  exit;
-
 
 --- 
 
