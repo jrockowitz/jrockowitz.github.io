@@ -34,9 +34,8 @@ permalink: /readme/
 - Experiment with Bootstrap.
   - style-guide.md 
 
-- Decide on page elements
-  - 2 column template
-  - https://getbootstrap.com/examples/grid/
+- Content Migration
+
 
 - Add and remove `environment: development` from _config.yml when grunt serve
   is called.
@@ -48,7 +47,7 @@ permalink: /readme/
   
 ## Questions
 
-- Best way tp extend bootstrap.
+- Best way to extend bootstrap.
 
 
 ## Process/Tasks
@@ -206,10 +205,9 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
 ### Build a style-guide/code snippet page 
 
-- [CSS](http://getbootstrap.com/css/): Global CSS settings, fundamental HTML 
-  elements styled and enhanced with extensible classes, and an advanced grid system.
-
-- http://getbootstrap.com/css/#type
+- [Bootstrap: CSS](http://getbootstrap.com/css/)  
+  Global CSS settings, fundamental HTML elements styled and enhanced with 
+  extensible classes, and an advanced grid system.
 
 ### Remove Jekyll's Boilerplate SASS and HTML.
 
@@ -217,19 +215,31 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
 - Replace `%vertical-rhythm` mixin with `margin-bottom: .5em;` in  _syntax-highlighting.scss
 
-### Setup Bootstrap navbar
+### Setup Bootstrap Navbar
 
-- [Navbar](http://getbootstrap.com/components/#navbar)
-- [Bootstrap Case: Adding a Navigation Bar](http://www.w3schools.com/bootstrap/bootstrap_case_navigation.asp)
+- [Bootstrap: Navbar](http://getbootstrap.com/components/#navbar)
+    - [Bootstrap Case: Adding a Navigation Bar](http://www.w3schools.com/bootstrap/bootstrap_case_navigation.asp)
 
-### Setup Bootstrap grid
+### Setup Bootstrap Grid
 
-- [Grid system](http://getbootstrap.com/css/#grid)
-- [Bootstrap Grids](http://www.w3schools.com/bootstrap/bootstrap_grid_basic.asp)
+- [Bootstrap: Grid system](http://getbootstrap.com/css/#grid)
+    - [Bootstrap Grids](http://www.w3schools.com/bootstrap/bootstrap_grid_basic.asp)
 
-### TODO: Setup Jekyll Pages
+### Setup Navigation using Jekyll's Data File and Collections
 
-- [How to change the default order pages in jekyll](http://stackoverflow.com/questions/13266369/how-to-change-the-default-order-pages-in-jekyll)
+- [Jekyll: Data files](http://jekyllrb.com/docs/datafiles/)
+    - [How to create data-driven navigation in Jekyll](http://www.tournemille.com/blog/How-to-create-data-driven-navigation-in-Jekyll/)
+
+- [ Jekyll: Collections](http://jekyllrb.com/docs/collections/)
+    - [How to change the default order pages in jekyll](http://stackoverflow.com/questions/13266369/how-to-change-the-default-order-pages-in-jekyll)
+
+### TODO: Set Contact Form using Wufoo
+
+- [You do not need a database for your contact form](http://sebastien.saunier.me/blog/2014/04/15/you-do-not-need-a-database-for-your-contact-form.html)
+    - [Wufoo](http://www.wufoo.com/)  
+      Create online forms in a snap - no coding required.
+    - [Formspree](formspree.io)  
+      Just send your form to our URL and we'll forward it to your email.
 
 ### More Information about using Jekyll on GitHub Pages
     
@@ -250,17 +260,20 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
 ### [GitHub Pages](https://pages.github.com/)
 
-- [GitHub Pages | Jekyll](http://jekyllrb.com/docs/github-pages/)
-- [Using Jekyll with Pages | GitHub](https://help.github.com/articles/using-jekyll-with-pages/)
+- [Jekyll: GitHub Pages](http://jekyllrb.com/docs/github-pages/)
+- [GitHub: Using Jekyll with Pages](https://help.github.com/articles/using-jekyll-with-pages/)
 
 ### [Jekyll](http://jekyllrb.com)
 
 - [Documentation](http://jekyllrb.com/docs/home/)
     - [GitHub Pages](http://jekyllrb.com/docs/github-pages/)
 - [Tips](http://jekyll.tips/)
-- [Liquid for Designers](https://github.com/shopify/liquid/wiki/Liquid-for-Designers)
 - [Pagination](http://jekyllrb.com/docs/pagination/)
 - [Photo Gallery](http://jekyll.tips/guide/photo-gallery/)
+
+### [Liquid for Designers](https://github.com/shopify/liquid/wiki/Liquid-for-Designers)
+
+- [Printing / Echoing / Dumping Arrays | liquid](https://github.com/Shopify/liquid/issues/121)
 
 ### [Bootstrap])http://getbootstrap.com/)
 
