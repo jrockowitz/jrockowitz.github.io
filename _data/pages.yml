@@ -1,11 +1,30 @@
 - title: About
-  url: /about/
   links:
-  - title: README
-    url: /readme/
-  - title: Style-Guide
-    url: /style-guide/
+    - title: About Me
+      url: /about/
+      separator: true
+    - title: About My Website
+      url: /readme/
+    - title: Style-Guide (for Bootstrap)
+      url: /style-guide/
+
 - title: Resume
-  url: /resume/
+  links:
+    - title: HTML
+      url: /resume/
+      separator: true
+    - title: PDF
+      url: https://docs.google.com/document/d/1AEP9K9wmwNnAkoop6mNhAaX9IjKu7UWqQYOwOUvOwgE/export?format=pdf&id=1AEP9K9wmwNnAkoop6mNhAaX9IjKu7UWqQYOwOUvOwgE&tfe=yo_253
+    - title: Google Doc
+      url: https://docs.google.com/document/d/1AEP9K9wmwNnAkoop6mNhAaX9IjKu7UWqQYOwOUvOwgE/edit?pli=1
+
 - title: Work
   url: /work/
+  links:
+    - title: Overview
+      url: /work/
+      separator: true
+  collection: work
+
+- title: Blog
+  url: /blog/

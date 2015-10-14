@@ -1,0 +1,17 @@
+---
+title: Blog
+layout: page
+permalink: /blog/
+---
+
+<ul>
+  {% for post in site.posts %}
+    <li>
+      <time itemprop="dateCreated" datetime="{{ post.date | date: "%Y-%m-%d" }}">{{ post.date | date: "%B %-d, %Y" }}</time>
+      - <b><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></b>
+    </li>
+  {% endfor %}
+</ul>
+
+<p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
+

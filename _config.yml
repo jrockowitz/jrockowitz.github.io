@@ -8,6 +8,19 @@ url: "http://jrockowitz.github.io/" # the base hostname & protocol for your site
 twitter_username: jrockowitz
 github_username:  jrockowitz
 
+# Collections
+collections:
+  work:
+    title: Work
+    output: true
+
+defaults:
+  - scope:
+      path: work
+      type: work
+    values:
+      layout: page
+
 # Build settings
 markdown: kramdown
 

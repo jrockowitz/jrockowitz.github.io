@@ -13,23 +13,36 @@
       <div class="collapse navbar-collapse" id="myNavbar">
 
         <ul class="nav navbar-nav">
+
           {% for node in site.data.pages %}
-            {% if node.links %}
+            {% if node.links or node.collection %}
               <li class="dropdown{% if page.url == node.url %} active"{% endif %}">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ node.title }}
-                  <span class="caret"></span></a>
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">{{ node.title }}
+                <span class="caret"></span></a>
                 <ul class="dropdown-menu">
-                  <li><a href="{{ node.url | prepend: site.baseurl }}">{{ node.title }}</a></li>
-                  <li role="separator" class="divider"></li>
+                {% if node.links %}
                   {% for link in node.links %}
-                  <li><a href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a></li>
+                    <li><a href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a></li>
+                  {% if link.separator %}<li role="separator" class="divider"></li>{% endif %}
                   {% endfor %}
+                {% endif %}
+
+                {% if node.collection %}
+                  {% assign collection = node.collection %}
+                  {% for link in site.collections.[collection].docs %}
+                     <li><a href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a></li>
+                  {% endfor %}
+                {% endif %}
                 </ul>
               </li>
+
             {% else %}
               <li{% if page.url == node.url %} class="active"{% endif %}><a href="{{ node.url | prepend: site.baseurl }}">{{ node.title }}</a></li>
             {% endif %}
+
+
           {% endfor %}
+
         </ul>
 
       </div>

@@ -6,11 +6,7 @@
  * Body
  */
 body {
-  margin: 80px $line-height-computed $line-height-computed $line-height-computed;
-  /* Mobile: Reduce margins and padding by 50%. */
-  @media (max-width: $screen-phone) {
-    margin: 60px ($line-height-computed/2) ($line-height-computed/2) ($line-height-computed/2);
-  }
+  margin: 50px 0 0 0;
 }
 
 /**
@@ -20,6 +16,14 @@ body {
 /**
  * Page
  */
+.page-wrapper {
+  padding: 20px $line-height-computed $line-height-computed $line-height-computed;
+  /* Mobile: Reduce margins and padding by 50%. */
+  @media (max-width: $screen-phone) {
+    padding: 20px ($line-height-computed/2) ($line-height-computed/2) ($line-height-computed/2);
+  }
+}
+
 .page {
   max-width: $screen-desktop;
   margin: 0 auto;
@@ -44,17 +48,23 @@ body {
 }
 
 /**
+ * Jumbotron
+ */
+.jumbotron {
+  margin-bottom: 0;
+}
+
+/**
  * Footer
  */
 .footer {
-  margin: $line-height-computed 0 0 0;
+  margin: 0;
   border-top: 1px solid $navbar-inverse-bg;
-  padding-top: $line-height-computed;
+  padding: $line-height-computed 0;
 
   /* Mobile: Reduce margins and padding by 50%. */
   @media (max-width: $screen-phone) {
-    margin: ($line-height-computed/2) 0 0 0;
-    padding-top: ($line-height-computed/2);
+    padding: ($line-height-computed/2) 0;
   }
 
   small {
