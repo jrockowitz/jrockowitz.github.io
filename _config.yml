@@ -24,6 +24,9 @@ defaults:
 # Build settings
 markdown: kramdown
 
+include:
+  - _pages
+
 # Exclude directories and files
 exclude:
   - node_modules
