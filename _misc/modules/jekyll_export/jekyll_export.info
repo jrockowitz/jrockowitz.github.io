@@ -1,0 +1,4 @@
+name = Jekyll export
+description = Custom migration to Jekyll.
+core = 7.x
+package = Custom
