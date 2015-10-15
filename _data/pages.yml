@@ -2,6 +2,8 @@
   links:
     - title: About Me
       url: /about/
+    - title: My Experience
+      url: /about-experience/
       separator: true
     - title: About My Website
       url: /readme/
@@ -25,9 +27,6 @@
       url: /work/
       separator: true
   collection: work
-
-- title: Blog
-  url: /blog/
 
 - title: Contact
   url: /contact/

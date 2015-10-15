@@ -29,22 +29,31 @@ function drush_jekyll_export() {
   $custom_filenames = [
     2 => 'about-experience',
     5 => 'resume',
+    16 => 'inettool',
+    9 => 'inettool-mskcc',
+    10 => 'inetool-mymskcc',
+    13 => 'inettool-gerstner-sloan-kettering-graduate-school-biomedical-sciences',
+    14 => 'inetool-weill-cornell-graduate-school-medical-sciences',
+    15 => 'inettool-starr-cancer-consortium',
     27 => 'mskcc-drupal-6',
     28 => 'mskcc-drupal-6-appendix',
     29 => 'mskcc-drupal-6-presentation',
   ];
   $custom_weights = [
-    27 => 10, // D6 - MSKCC
-    11 => 11, // Nomograms
-    16 => 20, // Inettool
-    9 => 21, // Inettool - MSKCC
-    13 => 22, // Inettool - GSK,
-    14 => 23, // Inettool - Weill
-    15 => 24, // Inettool - Starr
-    10 => 25, // Inettool - MyMskcc
-    18 => 30, // Time
-    19 => 30, // Sony
-    20 => 30, // Ethan Allen
+    27 => 20, // D6 - MSKCC
+    11 => 21, // Nomograms
+    16 => 30, // Inettool
+    9 => 31, // Inettool - MSKCC
+    13 => 32, // Inettool - GSK,
+    14 => 33, // Inettool - Weill
+    15 => 34, // Inettool - Starr
+    10 => 35, // Inettool - MyMskcc
+    18 => 40, // Time
+    19 => 40, // Sony
+    20 => 40, // Ethan Allen
+  ];
+  $custom_links = [
+    'inettool-content-management-system' => '/work/inettool/',
   ];
 
   $nodes = node_load_multiple(array(), array('status' => 1));
@@ -75,14 +84,12 @@ function drush_jekyll_export() {
     else {
       $permalink = _drush_jekyll_export_slugify($node->title);
     }
-    $front_matter['permalink'] = "/$permalink/";
+    $front_matter['permalink'] = ($is_work ? '/work/' : '/') . "$permalink/";
 
     // Set destination (using permalink).
     $destination_directory = JEKYLL_EXPORT_DESTINATION_DIRECTORY . '/' . ($is_work ? '_work' : '_pages');
     $destination_filename = (($is_work) ? sprintf("%02d", $custom_weights[$nid]) . '-' : '') . $permalink;
-
     $destination = "$destination_directory/$destination_filename.html";
-    $front_matter['permalink'] = "/$destination_filename/";
 
     // Display message
     $t_args = [
@@ -96,27 +103,13 @@ function drush_jekyll_export() {
 
     // Set body.
     $body = $node->body['und'][0]['value'];
-    // Convert tabs to 2 spaces.
-    $body = str_replace("\t", '  ', $body);
+    $body = _drush_jekyll_export_cleanup_body($body);
 
-    // Fix inline links
-    if (preg_match_all('/href="([^"]+)"/', $body, $matches)) {
-      foreach ($matches[1] as $source_href) {
-        if (strpos($source_href, 'http://thebigbluehouse.com/') !== 0) {
-          continue;
-        }
 
-        $destination_href = $source_href;
-        $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files/images/msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
-        $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files/images//msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
-        $destination_href = str_replace('http://thebigbluehouse.com/case-study/mskcc-appendix', '/mskcc-appendix/', $destination_href);
-        $destination_href = str_replace('http://thebigbluehouse.com/', '/', $destination_href);
-
-        $body = str_replace($source_href, $destination_href, $body);
-
-        // DEBUG:
-        // drush_print("$source_href => $destination_href");
-      }
+    if (strpos($body, '<!--break-->') !== FALSE) {
+      list($summary, $body) = explode('<!--break-->', $body);
+      $body = trim($body) ?: $summary;
+      $front_matter['description'] = preg_replace('#^<p>(.*?)</p>\s*$#', '\1', $summary);
     }
 
     // Fix inline images
@@ -127,6 +120,33 @@ function drush_jekyll_export() {
         }
         $body = str_replace($source_src, _drush_jekyll_export_image($source_src), $body);
       }
+    }
+
+    // Fix inline links
+    if (preg_match_all('/href="([^"]+)"/', $body, $matches)) {
+      foreach ($matches[1] as $source_href) {
+        if (isset($custom_links[$source_href])) {
+          $body = str_replace($source_href, $custom_links[$source_href], $body);
+        }
+        elseif (strpos($source_href, 'http://thebigbluehouse.com/') === 0) {
+          $destination_href = $source_href;
+          $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files/images/msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
+          $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files/images//msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
+          $destination_href = str_replace('http://thebigbluehouse.com/case-study/mskcc-appendix', '/mskcc-appendix/', $destination_href);
+          $destination_href = str_replace('http://thebigbluehouse.com/', '/', $destination_href);
+
+          $body = str_replace($source_href, $destination_href, $body);
+        }
+        else {
+          if (strpos($source_href, 'http') !== 0) {
+            throw new Exception('Broken link to '. $source_href);
+          }
+        }
+
+        // DEBUG:
+        // drush_print("$source_href => $destination_href");
+      }
+
     }
 
     // Fix attached images (aka screen shots)
@@ -142,10 +162,11 @@ function drush_jekyll_export() {
     // Generate YAML.
     $yaml = "";
     $yaml .= str_replace('...', '---', yaml_emit($front_matter));
+    $yaml .= "\n";
     $yaml .= $body;
 
-    // TODO: Put file
-    // file_put_contents($destination, $yaml);
+    // Put Jekyll file.
+    file_put_contents($destination, $yaml);
 
     // DEBUG: Front Matter
     // drush_print(yaml_emit($front_matter));drush_print();
@@ -156,19 +177,33 @@ function drush_jekyll_export() {
   return TRUE;
 }
 
+function _drush_jekyll_export_cleanup_body($body) {
+// Convert tabs to 2 spaces.
+  $body = str_replace("\t", '  ', $body);
+  $body = str_replace("    ", '  ', $body);
+
+  // Remove <h1> from resume.
+  $body = preg_replace('#<h1[^>]+>[^<]+</h1>#', '', $body);
+  // Change bold paragraph to <h4>.
+  $body = preg_replace('#<p><strong>(.*?)</strong><br />\s*#s', '<h4>\1</h4>' . "\n" . '<p>', $body);
+  return $body;
+}
+
 function _drush_jekyll_export_image($uri) {
-  static $rename_images = [
+  $rename_images = [
     'msk_cs' => 'drupal_6_mskcc',
-    'mskcc' => 'inettool_mskcc',
     'nomograms' => 'nomograms_asp_net',
+
+    'inettool' => 'inettool',
     'gsk' => 'inettool_gsk',
+    'mskcc' => 'inettool_mskcc',
     'mymskcc' => 'inettool_mymskcc',
-    'sony_cdit' => 'sony_cd_it',
     'star' => 'inettool_star',
     'starr' => 'inettool_starr',
-    'time' => 'time',
     'weill' => 'inettool_weill',
-    'inettool' => 'inettool',
+
+    'sony_cdit' => 'sony_cd_it',
+    'time' => 'time',
     'ethan_allen' => 'ethan_allen',
   ];
 
@@ -182,15 +217,21 @@ function _drush_jekyll_export_image($uri) {
   foreach ($rename_images as $image_source => $image_destination) {
     if (strpos($destination_file_name, $image_source . '_') === 0) {
       $destination_file_name = str_replace('_', '-', str_replace($image_source . '_', '', $destination_file_name));
-      $destination_file_name = $image_destination . '/'. $destination_file_name;
+      $destination_file_name = $image_destination . '/' . $destination_file_name;
+    }
+    elseif (strpos($destination_file_name, $image_source . '.') === 0) {
+      $destination_file_name = $image_destination . '/' . str_replace('_', '-', $image_destination) . '.png';
     }
   }
   $src = '/images/work/' . $destination_file_name;
   $destination_file_path = JEKYLL_EXPORT_DESTINATION_DIRECTORY . $src;
 
-  // TODO: Create destination directory and copy the file.
-  // file_prepare_directory(dirname($destination_file_path));
-  // file_unmanaged_copy($source_file_path, $destination_file_path, FILE_EXISTS_REPLACE);
+  // Create destination directory and copy the image file.
+  $destination_directory = dirname($destination_file_path);
+  if (!file_exists($destination_directory)) {
+    mkdir($destination_directory, 0777, true);
+  }
+  file_unmanaged_copy($source_file_path, $destination_file_path, FILE_EXISTS_REPLACE);
 
   // Display message.
   $t_args = [
