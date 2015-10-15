@@ -21,21 +21,12 @@ permalink: /readme/
 - Bootstrap
 - jQuery
 
-## Information Architecture
-
-- About
-- Resume
-- Work
-
---- 
-
 ## TODO
 
 - Experiment with Bootstrap.
   - style-guide.md 
 
 - Content Migration
-
 
 - Add and remove `environment: development` from _config.yml when grunt serve
   is called.
@@ -49,33 +40,6 @@ permalink: /readme/
 
 - Best way to extend bootstrap.
 
-
-## Process/Tasks
-
-- Base Template
-  - Setup head.html and script.html
-  - Build style-guide of Bootstrap elements
-  - 
-
-**GET THE CONTENT INTO JEKYLL**
-
-- Convert all Drupal 7 pages to Jekyll
-  - Keep HTML AS-IS
-  - Meta
-  - Content
-  - Slides
-
-- Build basic slideshow
-  
-- Add collection for case studies.
-
-- Set a blog
-
-**THEN EXPERIMENT WITH TEMPLATING**
-
-- Must get site structure correct and then we can experiment with branches.
-  
-- Use feature branches to experiment with new templates
 
 --- 
 
@@ -109,21 +73,13 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 ### Initial to Jekyll site
 
 - [Jekyll Configuration](http://jekyllrb.com/docs/configuration/)
+  - [Organizing Jekyll Pages](http://damonbauer.me/organizing-jekyll-pages/)
 
 
     # Update Jekyll configuration 
     cd local.jrockowitz.github.io
     edit _config.yml
     
-    # Add main.js to handle custom JavaScript behavior. 
-    cd local.jrockowitz.github.io
-    mkdir js
-    echo '// main.js' >> js/main.js
-
-    # Stop site from being crawled before it is completed
-    # Add <meta name="robots" content="noindex, nofollow"> to includes/head.html
-    cd local.jrockowitz.github.io
-    edit includes/head.html
     
 ### Use NodeJs Package Manager (npm) to install Grunt and Bower.
 
@@ -171,33 +127,15 @@ Replace 'Hello World' with a boilerplate Jekyll site.
     edit GruntFile.json
     grunt
 
+### Remove Jekyll's Boilerplate SASS and HTML.
+
+- Clear _sass/base.scss and _sass/layout.scss.
+
+- Replace `%vertical-rhythm` mixin with `margin-bottom: .5em;` in  _syntax-highlighting.scss
+
 ### Integrate jQuery, Bootstrap, and main.js into Jekylly Boilerplate website.
     
 - [Adding Bootstrap to Jekyll](http://stackoverflow.com/questions/28733425/adding-bootstrap-to-jekyll)
-
-
-    
-    # CSS: Add Bootstrap SASS to Jekyll SASS
-    cd local.jrockowitz.github.io
-    cat >> css/main.scss <<'EOF'
-    
-    // Import Bootstrap
-    @import "../bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap";
-    EOF
-    
-    # JS: Add jQuery and Bootstrap
-    cd local.jrockowitz.github.io
-    cat >> _includes/footer.html <<'EOF'
-    
-    {% if site.environment == 'development' %}
-      <script src="{{ site.baseurl }}/bower_components/jquery/jquery.min.js"></script>
-      <script src="{{ site.baseurl }}/bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js"></script>
-      <script src="{{ site.baseurl }}/js/main.js"></script>
-    {% else %}
-      <script src="{{ site.baseurl }}/assets/js/vendor.min.js"></script>
-      <script src="{{ site.baseurl }}/js/main.min.js"></script>
-    {% endif %}
-    EOF
 
 ### Add this README.md file to site.
 
@@ -208,12 +146,6 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 - [Bootstrap: CSS](http://getbootstrap.com/css/)  
   Global CSS settings, fundamental HTML elements styled and enhanced with 
   extensible classes, and an advanced grid system.
-
-### Remove Jekyll's Boilerplate SASS and HTML.
-
-- Clear _sass/base.scss and _sass/layout.scss.
-
-- Replace `%vertical-rhythm` mixin with `margin-bottom: .5em;` in  _syntax-highlighting.scss
 
 ### Setup Bootstrap Navbar
 
@@ -233,13 +165,26 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 - [ Jekyll: Collections](http://jekyllrb.com/docs/collections/)
     - [How to change the default order pages in jekyll](http://stackoverflow.com/questions/13266369/how-to-change-the-default-order-pages-in-jekyll)
 
-### TODO: Set Contact Form using Wufoo
+### Set Contact Form using Formspree
 
 - [You do not need a database for your contact form](http://sebastien.saunier.me/blog/2014/04/15/you-do-not-need-a-database-for-your-contact-form.html)
-    - [Wufoo](http://www.wufoo.com/)  
-      Create online forms in a snap - no coding required.
     - [Formspree](formspree.io)  
       Just send your form to our URL and we'll forward it to your email.
+
+
+### Migrate Content into Jekyll
+
+- https://github.com/lukaswhite/Drupal-Jekyll-Export/blob/master/jekyll_export/jekyll_export.module
+  - Export pages, posts, and blog.
+
+- Blog Posts
+
+- Resume
+    - Convert to markdown
+
+- Images
+    - images/work/name/file.ext
+  
 
 ### More Information about using Jekyll on GitHub Pages
     
