@@ -22,13 +22,13 @@ body {
 .page-wrapper {
   padding: 20px $line-height-computed $line-height-computed $line-height-computed;
   /* Mobile: Reduce margins and padding by 50%. */
-  @media (max-width: $screen-phone) {
+  @media (max-width: $screen-xs) {
     padding: 20px ($line-height-computed/2) ($line-height-computed/2) ($line-height-computed/2);
   }
 }
 
 .page {
-  max-width: $screen-tablet;
+  max-width: $screen-sm;
   margin: 0 auto;
 }
 
@@ -43,7 +43,7 @@ body {
 }
 
 /* Remove padding from columns in Bootstrap 3 http://stackoverflow.com/questions/19562903/remove-padding-from-columns-in-bootstrap-3 */
-@media (max-width: $screen-phone) {
+@media (max-width: $screen-xs) {
   .page-content [class*="col-"] {
     padding-left: 0;
     padding-right: 0;
@@ -66,7 +66,7 @@ body {
   padding: $line-height-computed 0;
 
   /* Mobile: Reduce margins and padding by 50%. */
-  @media (max-width: $screen-phone) {
+  @media (max-width: $screen-xs) {
     padding: ($line-height-computed/2) 0;
   }
 

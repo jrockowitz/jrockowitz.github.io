@@ -7,6 +7,17 @@
 
   "use strict";
 
+  var breakPoints = {
+    xs: {width: 480},
+    sm: {width: 768},
+    md: {width: 992},
+    lg: {width: 1200},
+  };
+  for (var breakPoint in breakPoints) {
+    breakPoints[breakPoint].minWidth = 'screen and (min-width: ' + breakPoints[breakPoint].width + 'px)';
+    breakPoints[breakPoint].maxWidth = 'screen and (max-width: ' + breakPoints[breakPoint].width + 'px)';
+  }
+
   /**
    * Set contact form action to formspree.io and the _next to the thankyou page.
    */
@@ -46,9 +57,18 @@
   /**
    * Thumbnails
    */
-  $(window).load(function() {
+  function equalHeight() {
+    $('.work .thumbnail-container').css('min-height', '');
+    $('.work .thumbnail-container').equalheight();
+  }
+  $(window).load(function () {
+    // Initialize equal heights.
+    equalHeight();
 
-    $('.work .thumbnail').equalheight();
+    // Reset equal height at each break point. Adding 1 to insure heights are reset after css media queries fire.
+    for (var breakPoint in breakPoints) {
+      enquire.register('screen and (min-width: ' + (breakPoints[breakPoint].width+1) + 'px)', {match: equalHeight});
+    }
   });
 
 })(jQuery);

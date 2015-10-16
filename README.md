@@ -27,6 +27,7 @@ permalink: /readme/
 - [jQuery](https://jquery.com/)
 - [jQuery Mobile](https://jquerymobile.com/)
   - [Events](https://api.jquerymobile.com/category/events/): Touch 
+- [enquire.js](wicky.nillia.ms/enquire.js/)
 
 ## TODO
 

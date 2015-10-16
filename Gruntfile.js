@@ -6,12 +6,13 @@ module.exports = function(grunt) {
     concat: {
       dist: {
         src: [
-          'bower_components/jquery/jquery.min.js',
-          'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
+          'bower_components/jquery/jquery.js',
+          'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
           'bower_components/jquery.equal-height/jquery.equal-height.js',
+          'bower_components/enquire/dist/enquire.js',
           'js/vendor/jquery.mobile.custom/jquery.mobile.custom.js'
         ],
-        dest: 'assets/js/vendor.min.js'
+        dest: 'assets/js/vendor.js'
       }
     },
     copy: {
@@ -29,6 +30,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
+          'assets/js/vendor.min.js': 'assets/js/vendor.js',
           'js/main.min.js': 'js/main.js'
         }
       }
@@ -39,8 +41,8 @@ module.exports = function(grunt) {
           sizes: [
             {
               rename: false,
-              width: 360,
-              height: 240,
+              width: 640,
+              height: 480,
               gravity: 'North',
               aspectRatio: false,
               sharpen: {
