@@ -192,6 +192,11 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
 - [Bootstrap open image in modal](http://stackoverflow.com/questions/25023199/bootstrap-open-image-in-modal)
 
+### TODO: Finalize Migration
+
+### TODO: Adjust Styles
+
+
 ### More Information about using Jekyll on GitHub Pages
     
 - [Repository metadata on GitHub Pages](https://help.github.com/articles/repository-metadata-on-github-pages/)
