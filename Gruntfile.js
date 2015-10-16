@@ -8,6 +8,7 @@ module.exports = function(grunt) {
         src: [
           'bower_components/jquery/jquery.min.js',
           'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
+          'bower_components/jquery.equal-height/jquery.equal-height.js',
           'js/vendor/jquery.mobile.custom/jquery.mobile.custom.js'
         ],
         dest: 'assets/js/vendor.min.js'
@@ -38,7 +39,10 @@ module.exports = function(grunt) {
           sizes: [
             {
               rename: false,
-              width: 300,
+              width: 360,
+              height: 240,
+              gravity: 'North',
+              aspectRatio: false,
               sharpen: {
                 sigma: 1,
                 radius: 2

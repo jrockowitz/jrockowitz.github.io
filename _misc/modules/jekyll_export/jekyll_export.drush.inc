@@ -101,14 +101,19 @@ function drush_jekyll_export() {
     // Set body and description (aka summary).
     $body = _drush_jekyll_export_body($node->body['und'][0]['value'], $front_matter);
 
+    // Set thumbnail placeholder for work, before images are added.
+    if ($is_work) {
+      $front_matter['thumbnail']['src'] = NULL;
+    }
+
     // Fix inline images
-    $body = _drush_jekyll_export_inline_images($body);
+    $body = _drush_jekyll_export_inline_images($body, $front_matter);
 
     // Fix inline links
     $body = _drush_jekyll_export_inline_links($body);
 
     // Fix attached images (aka screen shots)
-    _drush_jekyll_export_attached_images($front_matter, $node);
+    _drush_jekyll_export_attached_images($node, $front_matter);
 
     // Generate YAML.
     $yaml = "";
@@ -132,7 +137,7 @@ function drush_jekyll_export() {
  * @param $node
  * @param $front_matter
  */
-function _drush_jekyll_export_attached_images(&$front_matter, $node) {
+function _drush_jekyll_export_attached_images($node, &$front_matter) {
   if (isset($node->field_screenshots)) {
     foreach ($node->field_screenshots['und'] as $item) {
       $front_matter['images'][] = [
@@ -140,6 +145,8 @@ function _drush_jekyll_export_attached_images(&$front_matter, $node) {
         'title' => $item['title'],
       ];
     }
+
+    $front_matter['thumbnail']['src'] = str_replace('/images/', '/images-thumbnails/', $front_matter['images'][0]['src']);
   }
 }
 
@@ -201,16 +208,21 @@ function _drush_jekyll_export_inline_links($body) {
   return $body;
 }
 
-function _drush_jekyll_export_inline_images($body) {
+function _drush_jekyll_export_inline_images($body, &$front_matter) {
   if (preg_match_all('/src="([^"]+)"/', $body, $matches)) {
     foreach ($matches[1] as $source_src) {
       if (strpos($source_src, 'http://thebigbluehouse.com/sites/default/files') !== 0) {
         continue;
       }
-      $body = str_replace($source_src, _drush_jekyll_export_image($source_src), $body);
+      $destination_src =  str_replace('/images/', '/images-thumbnails/', _drush_jekyll_export_image($source_src));
+      $body = str_replace($source_src, $destination_src, $body);
+
+      if (empty($front_matter['thumbnail']['src'])) {
+        $front_matter['thumbnail']['src'] = $destination_src;
+      }
     }
-    // Replace image medium style with thumbnail
-    $body = str_replace(' class="image-medium" src="/images/', ' src="/images-thumbnails/', $body);
+    // Replace image medium styl.
+    $body = str_replace(' class="image-medium"', '', $body);
     // Remove lightbox attribute
     $body = preg_replace('# rel="lightbox[^"]+"#', '', $body);
 

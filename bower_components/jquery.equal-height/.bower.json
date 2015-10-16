@@ -1,0 +1,31 @@
+{
+  "name": "jquery.equal-height",
+  "version": "1.0.1",
+  "homepage": "https://github.com/markusfalk/jquery.equal-height",
+  "authors": [
+    "Markus Falk <mail@markus-falk.com>"
+  ],
+  "description": "jQuery Plugin for getting and setting the min-height of given elements to the highest calculated value",
+  "main": "jquery.equal-height.js",
+  "keywords": [
+    "equal",
+    "height"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "*.md",
+    "*.html"
+  ],
+  "dependencies": {
+    "jquery": ">1.7.0"
+  },
+  "_release": "1.0.1",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.0.1",
+    "commit": "684bc2106700685562c15296aeb53c3e4c8d18ff"
+  },
+  "_source": "git://github.com/OpenSourceWorkflow/jquery.equal-height.git",
+  "_target": "1.0.1",
+  "_originalSource": "jquery.equal-height"
+}

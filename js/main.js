@@ -42,6 +42,15 @@
     $('#modal-image').modal('show');
     event.preventDefault();
   });
+
+  /**
+   * Thumbnails
+   */
+  $(window).load(function() {
+
+    $('.thumbnail').equalheight();
+  });
+
 })(jQuery);
 
 
