@@ -15,18 +15,23 @@ permalink: /readme/
 
 ### Software/Libraries
 
-- Jeykyll
-- Grunt
-- Bower
-- Bootstrap
-- jQuery
+- [Jeykyll](https://jekyllrb.com/)
+- [Grunt](http://gruntjs.com/)
+    - [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat)
+    - [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy)
+    - [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify)
+    - [grunt-exec](https://github.com/jharding/grunt-exec)
+    - [grunt-responsive-images](https://github.com/andismith/grunt-responsive-images)
+- [Bower](http://bower.io/)
+- [Bootstrap](http://getbootstrap.com/)
+- [jQuery](https://jquery.com/)
+- [jQuery Mobile](https://jquerymobile.com/)
+  - [Events](https://api.jquerymobile.com/category/events/): Touch 
 
 ## TODO
 
-- Setup images carousel 
-- Generate thumbnails
-- Increase font-size
-    - https://www.npmjs.com/package/grunt-image-resize
+Styles
+    - Increase font-size
 
 - Add and remove `environment: development` from _config.yml when grunt serve
   is called.
@@ -175,6 +180,10 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
 - Write custom migration from Drupal 7 to Jekylly using Drush 
   
+### Setup Bootstrap Carousel
+
+- [Adding swipe support to Bootstrap Carousel 3.0](http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/)
+
 ### Generate Thumbnails
 
 - [Grunt Responsive Images](http://www.andismith.com/grunt-responsive-images/)

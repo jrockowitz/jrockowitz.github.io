@@ -7,7 +7,8 @@ module.exports = function(grunt) {
       dist: {
         src: [
           'bower_components/jquery/jquery.min.js',
-          'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js'
+          'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.min.js',
+          'js/vendor/jquery.mobile.custom/jquery.mobile.custom.js'
         ],
         dest: 'assets/js/vendor.min.js'
       }
@@ -19,9 +20,9 @@ module.exports = function(grunt) {
             expand: true,
             cwd: 'bower_components/bootstrap-sass-official/assets/fonts',
             src: ['**', '.**'],
-            dest: 'fonts',
+            dest: 'fonts'
           }
-        ],
+        ]
       }
     },
     uglify: {
@@ -29,7 +30,7 @@ module.exports = function(grunt) {
         files: {
           'js/main.min.js': 'js/main.js'
         }
-      },
+      }
     },
     responsive_images: {
       thumbnails: {
@@ -42,7 +43,7 @@ module.exports = function(grunt) {
                 sigma: 1,
                 radius: 2
               }
-            },
+            }
           ]
         },
         files: [{

@@ -211,6 +211,9 @@ function _drush_jekyll_export_inline_images($body) {
     }
     // Replace image medium style with thumbnail
     $body = str_replace(' class="image-medium" src="/images/', ' src="/images-thumbnails/', $body);
+    // Remove lightbox attribute
+    $body = preg_replace('# rel="lightbox[^"]+"#', '', $body);
+
     return $body;
   }
   return $body;
