@@ -14,7 +14,8 @@
     "grunt-contrib-concat": "*",
     "grunt-contrib-copy": "*",
     "grunt-contrib-uglify": "*",
-    "grunt-exec": "*"
+    "grunt-exec": "*",
+    "grunt-responsive-images" : "*"
   },
   "engines": {
     "npm": "1.2.x"

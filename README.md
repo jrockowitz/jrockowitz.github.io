@@ -23,10 +23,10 @@ permalink: /readme/
 
 ## TODO
 
-- Experiment with Bootstrap.
-  - style-guide.md 
-
-- Content Migration
+- Setup images carousel 
+- Generate thumbnails
+- Increase font-size
+    - https://www.npmjs.com/package/grunt-image-resize
 
 - Add and remove `environment: development` from _config.yml when grunt serve
   is called.
@@ -171,20 +171,17 @@ Replace 'Hello World' with a boilerplate Jekyll site.
     - [Formspree](formspree.io)  
       Just send your form to our URL and we'll forward it to your email.
 
-
 ### Migrate Content into Jekyll
 
-- https://github.com/lukaswhite/Drupal-Jekyll-Export/blob/master/jekyll_export/jekyll_export.module
-  - Export pages, posts, and blog.
-
-- Blog Posts
-
-- Resume
-    - Convert to markdown
-
-- Images
-    - images/work/name/file.ext
+- Write custom migration from Drupal 7 to Jekylly using Drush 
   
+### Generate Thumbnails
+
+- [Grunt Responsive Images](http://www.andismith.com/grunt-responsive-images/)
+
+### Create Image Enlarge Modal
+
+- [Bootstrap open image in modal](http://stackoverflow.com/questions/25023199/bootstrap-open-image-in-modal)
 
 ### More Information about using Jekyll on GitHub Pages
     

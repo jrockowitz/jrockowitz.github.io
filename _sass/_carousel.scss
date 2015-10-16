@@ -1,0 +1,24 @@
+/**
+ * Contains Bootstrap carousel overrides.
+ */
+
+.carousel h4 {
+  margin: 0;
+}
+.carousel img {
+  display: block;
+}
+
+.carousel .thumbnail {
+  border: 1px solid #000;
+}
+
+/* http://stackoverflow.com/questions/20746461/how-do-you-remove-the-default-bootstrap-3-carousel-control-background-gradients */
+.carousel-control {
+  &.left {
+    background-image: none
+  }
+  &.right {
+    background-image: none
+  }
+}

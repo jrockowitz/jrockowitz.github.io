@@ -120,6 +120,8 @@ function drush_jekyll_export() {
         }
         $body = str_replace($source_src, _drush_jekyll_export_image($source_src), $body);
       }
+      // Replace image medium style with thumbnail
+      $body =  str_replace(' class="image-medium" src="/images/', ' src="/images-thumbnails/', $body);
     }
 
     // Fix inline links
@@ -184,8 +186,10 @@ function _drush_jekyll_export_cleanup_body($body) {
 
   // Remove <h1> from resume.
   $body = preg_replace('#<h1[^>]+>[^<]+</h1>#', '', $body);
+
   // Change bold paragraph to <h4>.
   $body = preg_replace('#<p><strong>(.*?)</strong><br />\s*#s', '<h4>\1</h4>' . "\n" . '<p>', $body);
+
   return $body;
 }
 
