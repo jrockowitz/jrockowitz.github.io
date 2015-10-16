@@ -2,10 +2,10 @@
   links:
     - title: About Me
       url: /about/
-    - title: My Experience
+    - title: Experience
       url: /about-experience/
       separator: true
-    - title: About My Website
+    - title: Website
       url: /readme/
     - title: Style-Guide (for Bootstrap)
       url: /style-guide/

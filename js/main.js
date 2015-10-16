@@ -48,7 +48,7 @@
    */
   $(window).load(function() {
 
-    $('.thumbnail').equalheight();
+    $('.work .thumbnail').equalheight();
   });
 
 })(jQuery);

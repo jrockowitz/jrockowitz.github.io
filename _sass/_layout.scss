@@ -12,7 +12,10 @@ body {
 /**
  * Header
  */
-
+.site-image {
+  display: block;
+  border-bottom: 4px solid $navbar-inverse-bg;
+}
 /**
  * Page
  */
@@ -59,7 +62,7 @@ body {
  */
 .footer {
   margin: 0;
-  border-top: 1px solid $navbar-inverse-bg;
+  border-top: 4px solid $navbar-inverse-bg;
   padding: $line-height-computed 0;
 
   /* Mobile: Reduce margins and padding by 50%. */
