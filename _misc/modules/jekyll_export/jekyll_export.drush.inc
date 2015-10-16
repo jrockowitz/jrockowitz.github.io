@@ -52,9 +52,6 @@ function drush_jekyll_export() {
     19 => 40, // Sony
     20 => 40, // Ethan Allen
   ];
-  $custom_links = [
-    'inettool-content-management-system' => '/work/inettool/',
-  ];
 
   $nodes = node_load_multiple(array(), array('status' => 1));
   foreach ($nodes as $nid => $node) {
@@ -101,65 +98,17 @@ function drush_jekyll_export() {
 
     drush_print(dt('Exporting @title [@type-@nid] to @destination', $t_args));
 
-    // Set body.
-    $body = $node->body['und'][0]['value'];
-    $body = _drush_jekyll_export_cleanup_body($body);
-
-
-    if (strpos($body, '<!--break-->') !== FALSE) {
-      list($summary, $body) = explode('<!--break-->', $body);
-      $body = trim($body) ?: $summary;
-      $front_matter['description'] = preg_replace('#^<p>(.*?)</p>\s*$#', '\1', $summary);
-    }
+    // Set body and description (aka summary).
+    $body = _drush_jekyll_export_body($node->body['und'][0]['value'], $front_matter);
 
     // Fix inline images
-    if (preg_match_all('/src="([^"]+)"/', $body, $matches)) {
-      foreach ($matches[1] as $source_src) {
-        if (strpos($source_src, 'http://thebigbluehouse.com/sites/default/files') !== 0) {
-          continue;
-        }
-        $body = str_replace($source_src, _drush_jekyll_export_image($source_src), $body);
-      }
-      // Replace image medium style with thumbnail
-      $body =  str_replace(' class="image-medium" src="/images/', ' src="/images-thumbnails/', $body);
-    }
+    $body = _drush_jekyll_export_inline_images($body);
 
     // Fix inline links
-    if (preg_match_all('/href="([^"]+)"/', $body, $matches)) {
-      foreach ($matches[1] as $source_href) {
-        if (isset($custom_links[$source_href])) {
-          $body = str_replace($source_href, $custom_links[$source_href], $body);
-        }
-        elseif (strpos($source_href, 'http://thebigbluehouse.com/') === 0) {
-          $destination_href = $source_href;
-          $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files/images/msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
-          $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files/images//msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
-          $destination_href = str_replace('http://thebigbluehouse.com/case-study/mskcc-appendix', '/mskcc-appendix/', $destination_href);
-          $destination_href = str_replace('http://thebigbluehouse.com/', '/', $destination_href);
-
-          $body = str_replace($source_href, $destination_href, $body);
-        }
-        else {
-          if (strpos($source_href, 'http') !== 0) {
-            throw new Exception('Broken link to '. $source_href);
-          }
-        }
-
-        // DEBUG:
-        // drush_print("$source_href => $destination_href");
-      }
-
-    }
+    $body = _drush_jekyll_export_inline_links($body);
 
     // Fix attached images (aka screen shots)
-    if (isset($node->field_screenshots)) {
-      foreach ($node->field_screenshots['und'] as $item) {
-        $front_matter['images'][] = [
-          'src' => _drush_jekyll_export_image($item['uri']),
-          'title' => $item['title'],
-        ];
-      }
-    }
+    _drush_jekyll_export_attached_images($front_matter, $node);
 
     // Generate YAML.
     $yaml = "";
@@ -179,8 +128,27 @@ function drush_jekyll_export() {
   return TRUE;
 }
 
-function _drush_jekyll_export_cleanup_body($body) {
-// Convert tabs to 2 spaces.
+/**
+ * @param $node
+ * @param $front_matter
+ */
+function _drush_jekyll_export_attached_images(&$front_matter, $node) {
+  if (isset($node->field_screenshots)) {
+    foreach ($node->field_screenshots['und'] as $item) {
+      $front_matter['images'][] = [
+        'src' => _drush_jekyll_export_image($item['uri']),
+        'title' => $item['title'],
+      ];
+    }
+  }
+}
+
+/******************************************************************************/
+// Cleanup functions
+/******************************************************************************/
+
+function _drush_jekyll_export_body($body, &$front_matter) {
+  // Convert tabs to 2 spaces.
   $body = str_replace("\t", '  ', $body);
   $body = str_replace("    ", '  ', $body);
 
@@ -190,8 +158,67 @@ function _drush_jekyll_export_cleanup_body($body) {
   // Change bold paragraph to <h4>.
   $body = preg_replace('#<p><strong>(.*?)</strong><br />\s*#s', '<h4>\1</h4>' . "\n" . '<p>', $body);
 
+  if (strpos($body, '<!--break-->') !== FALSE) {
+    list($summary, $body) = explode('<!--break-->', $body);
+    $body = trim($body) ?: $summary;
+    $front_matter['description'] = preg_replace('#^<p>(.*?)</p>\s*$#', '\1', $summary);
+  }
+
   return $body;
 }
+
+function _drush_jekyll_export_inline_links($body) {
+  $custom_links = [
+    'inettool-content-management-system' => '/work/inettool/',
+  ];
+
+  if (preg_match_all('/href="([^"]+)"/', $body, $matches)) {
+    foreach ($matches[1] as $source_href) {
+      if (isset($custom_links[$source_href])) {
+        $body = str_replace($source_href, $custom_links[$source_href], $body);
+      }
+      elseif (strpos($source_href, 'http://thebigbluehouse.com/') === 0) {
+        $destination_href = $source_href;
+        $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files/images/msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
+        $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files/images//msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
+        $destination_href = str_replace('http://thebigbluehouse.com/case-study/mskcc-appendix', '/mskcc-appendix/', $destination_href);
+        $destination_href = str_replace('http://thebigbluehouse.com/', '/', $destination_href);
+        if (strpos($destination_href, '/images/') === 0) {
+          $destination_href = str_replace(basename($destination_href), str_replace('_', '-', basename($destination_href)), $destination_href);
+        }
+        $body = str_replace($source_href, $destination_href, $body);
+      }
+      else {
+        if (strpos($source_href, 'http') !== 0) {
+          throw new Exception('Broken link to ' . $source_href);
+        }
+      }
+
+      // DEBUG:
+      // drush_print("$source_href => $destination_href");
+    }
+  }
+  return $body;
+}
+
+function _drush_jekyll_export_inline_images($body) {
+  if (preg_match_all('/src="([^"]+)"/', $body, $matches)) {
+    foreach ($matches[1] as $source_src) {
+      if (strpos($source_src, 'http://thebigbluehouse.com/sites/default/files') !== 0) {
+        continue;
+      }
+      $body = str_replace($source_src, _drush_jekyll_export_image($source_src), $body);
+    }
+    // Replace image medium style with thumbnail
+    $body = str_replace(' class="image-medium" src="/images/', ' src="/images-thumbnails/', $body);
+    return $body;
+  }
+  return $body;
+}
+
+/******************************************************************************/
+// Helper functions
+/******************************************************************************/
 
 function _drush_jekyll_export_image($uri) {
   $rename_images = [

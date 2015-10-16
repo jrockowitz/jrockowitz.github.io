@@ -186,7 +186,10 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 ### More Information about using Jekyll on GitHub Pages
     
 - [Repository metadata on GitHub Pages](https://help.github.com/articles/repository-metadata-on-github-pages/)
-
+    - Modal include file
+    - Reusable
+    - Add to style guide.
+    
 --- 
 
 ## Notes
