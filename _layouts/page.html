@@ -1,13 +1,14 @@
 ---
 layout: default
 ---
-<div class="page-wrapper">
+
+<div class="page-wrapper"{% if page.id %} id="{{ page.id }}"{% endif %}>
   <div class="page">
 
     <header class="page-header">
       <h1>
         {% if page.icon %}
-          <span class="{{ page.icon }}" aria-hidden="true"></span>
+          <span class="{{ page.icon }} hidden-print" aria-hidden="true"></span>
         {% endif %}
         {{ page.title }}
         {% if page.subtitle %}

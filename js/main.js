@@ -58,8 +58,9 @@
    * Thumbnails
    */
   function equalHeight() {
-    $('.work .thumbnail-container').css('min-height', '');
-    $('.work .thumbnail-container').equalheight();
+    $(['.work .thumbnail-container', '#work-mskcc-drupal-6 .thumbnail-container']).each(function () {
+      $(this).css('min-height', '').equalheight();
+    })
   }
   $(window).load(function () {
     // Initialize equal heights.

@@ -16,7 +16,7 @@
   icon: 'fa fa-file'
   links:
     - title: HTML
-      url: /resume/
+      url: /jacob-rockowitz/
       icon: 'fa fa-file-o'
       separator: true
     - title: PDF
