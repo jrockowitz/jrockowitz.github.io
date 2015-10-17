@@ -69,7 +69,7 @@ thumbnail:
   </div>
 </div>
 
-<p>Memorial Sloan-Kettering Cancer Center's broad mission requires that the www.mskcc.org design and information architecture serve a wide variety of audiences, each of whom are interested in very different content. For example, each aspect of MSKCC's mission, <a href="http://www.mskcc.org/cancer-care">treatment</a>,&nbsp;<a href="http://www.mskcc.org/research">research</a>,&nbsp;and <a href="http://www.mskcc.org/education">education,</a> has a dedicated landing page. A newly diagnosed cancer patient generally is interested in seeing only information about their specific <a href="http://www.mskcc.org/cancer-care/cancer-treatment">cancer type</a> while a postdoctoral student might want to view a researcher within a given <a href="http://www.mskcc.org/research/research-programs-departments">research program or department</a>. The primary goal for the redesign of www.mskcc.org was to better address the website's user needs, while cleanly conveying MSKCC's mission.</p>
+<p>Memorial Sloan-Kettering Cancer Center's broad mission requires that the www.mskcc.org design and information architecture serve a wide variety of audiences, each of whom are interested in very different content. For example, each aspect of MSKCC's mission, <a href="http://www.mskcc.org/cancer-care">treatment</a>, <a href="http://www.mskcc.org/research">research</a>,&nbsp;and <a href="http://www.mskcc.org/education">education,</a> has a dedicated landing page. A newly diagnosed cancer patient generally is interested in seeing only information about their specific <a href="http://www.mskcc.org/cancer-care/cancer-treatment">cancer type</a> while a postdoctoral student might want to view a researcher within a given <a href="http://www.mskcc.org/research/research-programs-departments">research program or department</a>. The primary goal for the redesign of www.mskcc.org was to better address the website's user needs, while cleanly conveying MSKCC's mission.</p>
 <hr>
 <p>Watch the below video to learn more about the new MSKCC.org</p>
 <div class="embed-responsive embed-responsive-4by3">
@@ -156,7 +156,7 @@ thumbnail:
 <p>Besides learning Drupal, I had three goals for my migration script, which were:</p>
 <ul>
   <li>Automated nightly builds so that everyone could review the migrated data as changes were being made</li>
-  <li>Single page imports that would&nbsp;be&nbsp;used to debug minor migration issues</li>
+  <li>Single page imports that would be used to debug minor migration issues</li>
   <li>Finally, to cleanly migrate 90% of the existing 10,000+ pages, thus requiring little post migration cleanup</li>
 </ul>
 <p>Besides one or two issues that had to be fixed post-final migration, the data migration was successful, requiring about 3 weeks of post-migration cleanup but admittedly there was a lot of pre-migration cleanup. The most important thing was when it was time to finally migrate the website, everyone on the project was comfortable and ready to move to Drupal.</p>
@@ -191,8 +191,8 @@ thumbnail:
 <p><strong>Menus</strong><br>
   Out of the box, Drupal supports a primary and secondary <a href="http://drupal.org/documentation/modules/menu">menu</a>. These menus are used in the main navigation bars at the top of website. The primary and secondary menu handles the first 3 tiers of the www.mskcc.org website, and then a combination of taxonomy, books, and views manage the lower levels of the website's information architecture.</p>
 <p><strong>Taxonomy</strong><br>
-  Drupal's <a href="http://drupal.org/documentation/modules/taxonomy">taxonomy</a> system was used to manage MSK hierachical <a href="http://www.mskcc.org/doctor/specialty">medical specialities</a> and even simple <a href="http://www.mskcc.org/calendar">event categorization</a>. <span class="diffchange">I built a&nbsp;</span> custom taxonomy helper module to generate hierarchical and alphabetical taxonomy term displays for finding a doctor by specialities or department.</p>
-<p><strong>View the complete list of <a href="/mskcc-drupal-6-appendix/#taxonomy">taxonomy vocabularies</a>&nbsp;used on the website.</strong></p>
+  Drupal's <a href="http://drupal.org/documentation/modules/taxonomy">taxonomy</a> system was used to manage MSK hierachical <a href="http://www.mskcc.org/doctor/specialty">medical specialities</a> and even simple <a href="http://www.mskcc.org/calendar">event categorization</a>. I built a custom taxonomy helper module to generate hierarchical and alphabetical taxonomy term displays for finding a doctor by specialities or department.</p>
+<p><strong>View the complete list of <a href="/mskcc-drupal-6-appendix/#taxonomy">taxonomy vocabularies</a> used on the website.</strong></p>
 <p><strong>Books</strong><br>
   Besides having a lot of unique content, the website has many unique sections maintained by different users. The <a href="http://drupal.org/documentation/modules/book">book</a> module, included in Drupal core, was the best means to break down the website's very rich information architecture. A custom '<a href="http://drupal.org/project/book_helper">Book helper</a>' module was created to allow administrators to customize a book's navigation using some additionally available menu features, include disabling menu items and customizing a menu item's title.</p>
 
@@ -243,7 +243,7 @@ thumbnail:
 <h3>Contributed Modules</h3>
 <p>The website uses 100+ <a href="http://drupal.org/project/modules">contributed modules</a>, which were selected based on their usage stats balanced against their usefulness on the MSKCC website.<br>
   <br>
-  In fact, some key challenges were solved by using some of the less-popular contrib modules and features.&nbsp; Some examples are:<br>
+  In fact, some key challenges were solved by using some of the less-popular contrib modules and features. Some examples are:<br>
   <br>
   <strong>Third Party Wrappers</strong><br>
   MSKCC has several applications that are built using ASP.NET. To maintain a consistent look and feel, the main website's template must be shared with these applications. The <a href="http://drupal.org/project/third_party_wrappers">Third Party Wrappers module</a> solved this challenge by allowing the website's template to be wrapped around a "third party application" by creating header and footer snippets that developers can include in their application.</p>
@@ -288,7 +288,7 @@ thumbnail:
 
 <p><strong>See the complete list of <a href="/mskcc-drupal-6-appendix/#custom">custom modules</a> used on the website.</strong></p>
 <h3>Sandbox Modules</h3>
-<p>While planning and implementing MSKCC's custom modules, I tried to make sure that any re-usable functionality was abstracted out into generic modules that could be shared with the Drupal community. Meanwhile, the great <a href="http://groups.drupal.org/drupal-org-git-team">GIT migration</a>&nbsp;occured which changed and improved how the Drupal project and its contributed modules were being developed. One of the coolest changes was the addition of developer sandboxes. Sandboxes are basically open sourced Drupal projects that are not fully-fledged projects but they give developers a way to share their code. This is exactly what I intended to do.</p>
+<p>While planning and implementing MSKCC's custom modules, I tried to make sure that any re-usable functionality was abstracted out into generic modules that could be shared with the Drupal community. Meanwhile, the great <a href="http://groups.drupal.org/drupal-org-git-team">GIT migration</a> occured which changed and improved how the Drupal project and its contributed modules were being developed. One of the coolest changes was the addition of developer sandboxes. Sandboxes are basically open sourced Drupal projects that are not fully-fledged projects but they give developers a way to share their code. This is exactly what I intended to do.</p>
 <p>During Rand Fay's DrupalCon presentation "<a href="http://chicago2011.drupal.org/sessions/git-drupal-org-it-s-easier-you-think">Git on Drupal.org: It's Easier Than You Think!</a>", I asked the question "should developers just sandbox all their code" while working on a Drupal website. The answer I got was "yes," so I decided to build and share my sandbox. I restructured my 'sites/all/modules' directory to reflect this by adding a 'sandbox' directory next to my 'contrib', 'custom', and 'dev' directories. I would describe this new 'sandbox' directory as code that sits somewhere between being completely custom to that which can one day being contributed back to the Drupal community.</p>
 <p><strong>See the complete list of my <a href="/mskcc-drupal-6-appendix/#sandbox">sandbox modules</a>.</strong></p>
 <h3>Templates</h3>
@@ -346,7 +346,7 @@ thumbnail:
 <p>Below are the five Drupal <a href="http://drupal.org/best-practices">best practices</a> that I worked to adhered to for the MSKCC website:</p>
 <ol>
   <li><strong>Code standards</strong><br>
-  Drupal's <a href="http://drupal.org/node/318">code standards</a> are very well documented. The <a href="http://drupal.org/project/coder">Coder module</a> is extremely&nbsp;helpful in correcting any bad habits and mistakes.</li>
+  Drupal's <a href="http://drupal.org/node/318">code standards</a> are very well documented. The <a href="http://drupal.org/project/coder">Coder module</a> is extremely helpful in correcting any bad habits and mistakes.</li>
   <li><strong>Version control</strong><br>
   Use <a href="http://drupal.org/node/299067">version control</a>. `nuff said</li>
   <li><strong>API documentation</strong><br>
@@ -394,4 +394,4 @@ thumbnail:
 <h3>Conclusions</h3>
 <p>Drupal works... maybe this is too simple of a statement for a complex web-site project, using close to 200 modules, but in the end, Drupal accomplished what it was designed to do: build a website. Drupal allowed MSKCC to focus on their website's mission and not the technology behind it. In the end, MSKCC's goals were met because the website looks great and the information is easy to find.</p>
 <h3>About the Team</h3>
-<p>The launch of the new MSKCC.org was a joint effort of four different groups/organizations who were responsible for design, content, web development, and infrastructure. <a href="http://mcdpartners.com/">Magnani, Caruso and Dutton (MCD)</a> designed the new site and re-worked the information architecture. <a href="/">The Big Blue House</a>&nbsp;(My company) was responsible for all Drupal development. MSKCC's Department of Information Systems configured and administers the enterprise LAMP server stack. Finally, MSKCC's Department of Public Affairs manages the website day-to-day, and is responsible for the high-quality content and beautiful photography, as well as ongoing strategy and optimization.</p>
+<p>The launch of the new MSKCC.org was a joint effort of four different groups/organizations who were responsible for design, content, web development, and infrastructure. <a href="http://mcdpartners.com/">Magnani, Caruso and Dutton (MCD)</a> designed the new site and re-worked the information architecture. <a href="/">The Big Blue House</a> (My company) was responsible for all Drupal development. MSKCC's Department of Information Systems configured and administers the enterprise LAMP server stack. Finally, MSKCC's Department of Public Affairs manages the website day-to-day, and is responsible for the high-quality content and beautiful photography, as well as ongoing strategy and optimization.</p>
