@@ -45,19 +45,16 @@ module.exports = function(grunt) {
       }
     },
     cssmin: {
-      vendor: {
-        options: {
-          shorthandCompacting: false,
-          roundingPrecision: -1
-        },
-        target: {
-          files: {
-            'assets/css/vendor.min.css': [
-              'assets/css/vendor.css'
-            ]
-          }
+      dist: {
+        files: {
+          'assets/css/vendor.min.css': [
+            'assets/css/vendor.css'
+          ],
+          'css/main.min.css': [
+            '_site/css/main.css'
+          ]
         }
-      },
+      }
     },
     uglify: {
       dist: {

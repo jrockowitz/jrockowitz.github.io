@@ -4,9 +4,7 @@ email: https://github.com/jrockowitz/
 description: >
   Welcome to the The Big Blue House.
 baseurl: ""
-url: "http://jrockowitz.github.io/" # the base hostname & protocol for your site
-twitter_username: jrockowitz
-github_username:  jrockowitz
+url: "http://thebigbluehouse.com/"
 
 # Collections
 collections:
@@ -36,4 +34,4 @@ exclude:
   - node_modules
 
 # Environments in Jekyll - http://www.petethompson.net/blog/web/2015/02/28/environments-in-jekyll/
-environment: production
+environment: productionxx
