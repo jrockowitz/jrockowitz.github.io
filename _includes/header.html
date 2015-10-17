@@ -25,7 +25,12 @@
 
                 {% if node.links %}
                   {% for link in node.links %}
-                    <li><a href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a></li>
+                    <li>
+                      <a href="{{ link.url | prepend: site.baseurl }}">
+                        <span class="{{ link.icon }}" aria-hidden="true"></span>
+                        {{ link.title }}
+                      </a>
+                    </li>
                   {% if link.separator %}<li role="separator" class="divider"></li>{% endif %}
                   {% endfor %}
                 {% endif %}

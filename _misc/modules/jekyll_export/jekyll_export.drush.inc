@@ -25,19 +25,25 @@ function drush_jekyll_export() {
   $skipped_nodes = [
     22, // dprint_r()
     23, // dprint_rx
+    27, // The new MSKCC.org
+    5, // Resume
   ];
   $custom_filenames = [
     2 => 'about-experience',
     5 => 'resume',
     16 => 'inettool',
-    9 => 'inettool-mskcc',
-    10 => 'inetool-mymskcc',
-    13 => 'inettool-gerstner-sloan-kettering-graduate-school-biomedical-sciences',
-    14 => 'inetool-weill-cornell-graduate-school-medical-sciences',
-    15 => 'inettool-starr-cancer-consortium',
+    9 => 'mskcc-inettool',
+    10 => 'mymskcc-inetool',
+    13 => 'gerstner-sloan-kettering-inettool',
+    14 => 'weill-cornell-inetool',
+    15 => 'starr-inettool',
+    11 => 'cancer-prediction-tools-dot-net',
     27 => 'mskcc-drupal-6',
     28 => 'mskcc-drupal-6-appendix',
     29 => 'mskcc-drupal-6-presentation',
+    18 => 'time-magazine',
+    19 => 'sony',
+    20 => 'ethan-allen',
   ];
   $custom_titles = [
     2 => 'My Experience',
@@ -54,9 +60,9 @@ function drush_jekyll_export() {
     27 => 'The New MSKCC.org: Drupal 6 Case Study',
   ];
   $custom_short_titles = [
-    9 => 'Memorial Sloan Kettering (Old)',
+    9 => 'Memorial Sloan Kettering (Inettool)',
     10 => 'MyMSKCC',
-    11 => 'Cancer Prediction Tools',
+    11 => 'Cancer Prediction Tools (ASP.NET)',
     13 => 'Gerstner Sloan-Kettering',
     14 => 'Weill Cornell Graduate School',
     15 => 'Starr Cancer Consortium',
@@ -225,7 +231,8 @@ function _drush_jekyll_export_inline_links($body) {
         $destination_href = $source_href;
         $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files/images/msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
         $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files/images//msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
-        $destination_href = str_replace('http://thebigbluehouse.com/case-study/mskcc-appendix', '/mskcc-appendix/', $destination_href);
+        $destination_href = str_replace('http://thebigbluehouse.com/sites/default/files//images/msk_cs_', '/images/work/drupal_6_mskcc/', $destination_href);
+        $destination_href = str_replace('http://thebigbluehouse.com/case-study/mskcc-appendix', '/mskcc-drupal-6-appendix/', $destination_href);
         $destination_href = str_replace('http://thebigbluehouse.com/', '/', $destination_href);
         if (strpos($destination_href, '/images/') === 0) {
           $destination_href = str_replace(basename($destination_href), str_replace('_', '-', basename($destination_href)), $destination_href);

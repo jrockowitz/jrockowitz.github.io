@@ -3,10 +3,13 @@
   links:
     - title: About Me
       url: /about/
+      icon: 'fa fa-user'
     - title: My Experience
       url: /about-experience/
+      icon: 'fa fa-quote-left'
       separator: true
     - title: This Website
+      icon: 'fa fa-cogs'
       url: /readme/
 
 - title: Resume
@@ -14,10 +17,13 @@
   links:
     - title: HTML
       url: /resume/
+      icon: 'fa fa-file-o'
       separator: true
     - title: PDF
       url: https://docs.google.com/document/d/1AEP9K9wmwNnAkoop6mNhAaX9IjKu7UWqQYOwOUvOwgE/export?format=pdf&id=1AEP9K9wmwNnAkoop6mNhAaX9IjKu7UWqQYOwOUvOwgE&tfe=yo_253
+      icon: 'fa fa-file-pdf-o'
     - title: Google Doc
+      icon: 'fa fa-google'
       url: https://docs.google.com/document/d/1AEP9K9wmwNnAkoop6mNhAaX9IjKu7UWqQYOwOUvOwgE/edit?pli=1
 
 - title: Work
@@ -26,6 +32,7 @@
   links:
     - title: Overview
       url: /work/
+      icon: 'fa fa-terminal'
       separator: true
   collection: work
 

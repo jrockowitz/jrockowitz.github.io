@@ -1,0 +1,355 @@
+---
+title: 'The New MSKCC.org: Drupal 6 Case Study'
+short_title: Memorial Sloan Kettering (Drupal 6)
+description: <p>So, after 2 years of work, Memorial Sloan-Kettering Cancer Center's
+  redesigned website, MSKCC.org has finally launched. Rebuilding and moving the <a
+  href="http://www.mskcc.org/">www.mskcc.org</a> website to <a href="http://drupal.org">Drupal</a>
+  was my biggest project ever and my first large scale Drupal project, which is why
+  I feel it is important to share my experience---</p>
+layout: page
+permalink: /work/mskcc-drupal-6/
+thumbnail:
+  src: /images-thumbnails/work/drupal_6_mskcc/front-new.png
+---
+
+<h3>Introduction</h3>
+<p>In 2001, after several prototypes and iterations, the Memorial Sloan-Kettering Cancer Center website (<a href="http://www.mskcc.org/">www.mskcc.org</a>) launched on my "homegrown" content management system (CMS) called the "<a href="/work/inettool/">Inettool</a>." For the last decade, while maintaining and customizing the Inettool, I came to the realization that I was digging a "CMS hole" where my code and MSKCC's data were gradually being buried and trapped in this custom built system. This experience led me to conclude that "custom built software requires everything to be custom built." Using an Open-Source CMS, like Drupal, prevents one from being trapped in a custom built CMS, because Open Source code provides pre-existing and tested functionality that can be customized.</p>
+<p>The simplest explanation to why I choose Drupal is "<a href="http://en.wikipedia.org/wiki/Linus%27_Law">given enough eyeballs, all bugs are shallow</a>," Drupal has a community of engaged participants looking at and contributing code. For me, Drupal's contributed code and open discussions are its biggest strengths; I have not hit any brick walls or black boxes while using Drupal to build the MSKCC.org website.</p>
+<div align="center">
+  <table border="0" cellpadding="5" cellspacing="1" class="center">
+  <tbody>
+    <tr>
+    <th>New MSKCC.org</th>
+    <th>Old MSKCC.org</th>
+    </tr>
+    <tr>
+    <td><a href="/images/work/drupal_6_mskcc/front-new.png"><img alt="New MSKCC.org" src="/images-thumbnails/work/drupal_6_mskcc/front-new.png" title="New MSKCC.org"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/front-old.png"><img alt="Old MSKCC.org" src="/images-thumbnails/work/drupal_6_mskcc/front-old.png" title="Old MSKCC.org"></a></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<h3>About MSKCC.org</h3>
+<p>As one of the world's premier cancer centers, Memorial Sloan-Kettering Cancer Center is committed to exceptional patient care, leading-edge research, and superb educational programs.</p>
+<div align="center">
+  <table border="0" cellpadding="5" cellspacing="1" class="center">
+  <thead>
+    <tr>
+    <th>Cancer Care</th>
+    <th>Research</th>
+    <th>Education &amp; Training</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><a href="/images/work/drupal_6_mskcc/cancer-care.png"><img alt="Cancer Care Homepage" src="/images-thumbnails/work/drupal_6_mskcc/cancer-care.png" title="Cancer Care Homepage"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/research.png"><img alt="Research Homepage" src="/images-thumbnails/work/drupal_6_mskcc/research.png" title="Research Homepage"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/education.png"><img alt="Education &amp; Training Homepage" src="/images-thumbnails/work/drupal_6_mskcc/education.png" title="Education &amp; Training Homepage"></a></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<p>Memorial Sloan-Kettering Cancer Center's broad mission requires that the www.mskcc.org design and information architecture serve a wide variety of audiences, each of whom are interested in very different content. For example, each aspect of MSKCC's mission, <a href="http://www.mskcc.org/cancer-care">treatment</a>,&nbsp;<a href="http://www.mskcc.org/research">research</a>,&nbsp;and <a href="http://www.mskcc.org/education">education,</a> has a dedicated landing page. A newly diagnosed cancer patient generally is interested in seeing only information about their specific <a href="http://www.mskcc.org/cancer-care/cancer-treatment">cancer type</a> while a postdoctoral student might want to view a researcher within a given <a href="http://www.mskcc.org/research/research-programs-departments">research program or department</a>. The primary goal for the redesign of www.mskcc.org was to better address the website's user needs, while cleanly conveying MSKCC's mission.</p>
+<hr>
+<p>Watch the below video to learn more about the new MSKCC.org</p>
+<div align="center"><iframe align="middle" allowfullscreen="" frameborder="0" height="360" src="http://www.youtube.com/embed/nkUQoDtJlH4" width="640"></iframe></div>
+<p>&nbsp;</p>
+<h3>About the "Switch"</h3>
+<p>As mentioned in the introduction, the previous website was built using a custom built CMS, called the "Inettool." The driving force behind the custom built CMS was the desire for the institution to have a specialized, customizable website.</p>
+<p>I will let you in on a little secret and misconception: "most websites are never really that special, it is the institution and/or business behind the website that is special." In the case of the www.mskcc.org website, the CMS is just a tool used to convey their mission and message, which I personally summarize as "<span class="diffchange">quality, compassionate care</span>."</p>
+<p>I successfully convinced MSKCC to switch to Drupal by explaining the ongoing challenges of maintaining their custom built CMS. One final, but key selling point for switching to Drupal was the availability of enterprise support from <a href="http://acquia.com/">Acquia</a>.</p>
+<p>So MSKCC agreed to adopt Drupal and "the switch" got underway.</p>
+<p>The "switch" can be broken down into several steps/decisions, which include...</p>
+<ul>
+  <li>Migration</li>
+  <li>System Architecture</li>
+  <li>Content Management</li>
+  <li>Information Architecture</li>
+  <li>Site Features (aka modules)</li>
+  <li>Templates (aka themes and panels)</li>
+</ul>
+<h3>First, Some Stats</h3>
+<p>Below are some general stats to help describe the scope of the migration and the general system architecture requirements.</p>
+<table align="right" border="0" cellpadding="5" cellspacing="1" width="300">
+  <caption>Site Stats (Yearly)</caption>
+  <tbody>
+  <tr align="left" valign="top">
+    <th width="50%">Visits</th>
+    <th width="50%">Page Views</th>
+  </tr>
+  <tr align="left" valign="top">
+    <td>5,567,343 Visits<br>
+    3,364,927 Unique Visitors</td>
+    <td>20,805,773 Pageviews</td>
+  </tr>
+  </tbody>
+</table>
+<table align="left" border="0" cellpadding="5" cellspacing="1" width="300">
+  <caption>Drupal Stats</caption>
+  <tbody>
+  <tr align="left" valign="top">
+    <th width="50%">Modules</th>
+    <th width="50%">Users</th>
+  </tr>
+  <tr align="left" valign="top">
+    <td>206 modules enabled<br>
+    142 contrib modules<br>
+    64 custom modules</td>
+    <td>55 active users<br>
+    17 roles</td>
+  </tr>
+  <tr align="left" valign="top">
+    <th>Nodes</th>
+    <th>Books</th>
+  </tr>
+  <tr align="left" valign="top">
+    <td>33 content-types<br>
+    297 fields<br>
+    11297 nodes</td>
+    <td>139 books<br>
+    2003 book pages</td>
+  </tr>
+  <tr align="left" valign="top">
+    <th>Menus</th>
+    <th>Taxononomy</th>
+  </tr>
+  <tr align="left" valign="top">
+    <td>108 primary links<br>
+    26 secondary links</td>
+    <td>14 vocabularies<br>
+    1972 terms</td>
+  </tr>
+  <tr align="left" valign="top">
+    <th>Views</th>
+    <th>&nbsp;</th>
+  </tr>
+  <tr align="left" valign="top">
+    <td>112 views</td>
+    <td>&nbsp;</td>
+  </tr>
+  </tbody>
+</table>
+<br clear="all">
+<h3>Migration</h3>
+<p>Conceptualizing a migration of data from the Inettool to Drupal was the first step of the switch process. There were many questions to be asked and answered on how the migration will be accomplished. What data would be moved? Finally, how much data could be cleanly migrated, and how much data would require additional post-migration cleanup?</p>
+<p>How to migrate an existing website to Drupal can be a pretty easy question to answer, since Drupal has several contributed modules to <a href="http://drupal.org/project/modules?filters=tid%3A64">import and export data</a>. Honestly, I made a 'newbie' mistake, which may have been a good decision, to write a custom migration module from scratch. I saw this as an opportunity to learn PHP and the inner workings of Drupal's API and database structure while knowing that this code would be thrown away after the final migration. <strong>Anyone new to Drupal should be willing to throw away code, it is just part of the learning process.</strong></p>
+<p>Besides learning Drupal, I had three goals for my migration script, which were:</p>
+<ul>
+  <li>Automated nightly builds so that everyone could review the migrated data as changes were being made</li>
+  <li>Single page imports that would&nbsp;be&nbsp;used to debug minor migration issues</li>
+  <li>Finally, to cleanly migrate 90% of the existing 10,000+ pages, thus requiring little post migration cleanup</li>
+</ul>
+<p>Besides one or two issues that had to be fixed post-final migration, the data migration was successful, requiring about 3 weeks of post-migration cleanup but admittedly there was a lot of pre-migration cleanup. The most important thing was when it was time to finally migrate the website, everyone on the project was comfortable and ready to move to Drupal.</p>
+<h3>System Architecture</h3>
+<table align="right" border="0" cellpadding="5" cellspacing="1" class="right">
+  <tbody>
+  <tr>
+    <th>MSK Custom Requirements</th>
+  </tr>
+  <tr>
+    <td><a href="/images/work/drupal_6_mskcc/custom-status-report.png" rel="lightbox"><img alt="Custom MSK requirements" src="/images-thumbnails/work/drupal_6_mskcc/custom-status-report.png" title="Custom MSK requirement"></a></td>
+  </tr>
+  </tbody>
+</table>
+<p>Since the project began in 2009, the new website uses Drupal 6. Though the web-site has no patient health information (PHI), MSKCC reasonably required that the web servers be hosted internally. The key performance recommendation I made, especially for a MSKCC's initial launch on Drupal, was to have no authenticated traffic on the website. By keeping all external user's anonymous, every page on the website can be cached by a <a href="http://en.wikipedia.org/wiki/Reverse_proxy">reverse proxy</a> and the website can handle a fairly large load.</p>
+<p>No one at MSKCC, including myself, had ever launched a large Drupal or LAMP stack website, so Acquia was brought in to do a general Drupal site audit and make server recommendations. The final solution was an F5 load balancer in front of 2 varnish reverse proxy/web servers, 1 memcache server, and 2 master and slave MySQL DB servers.</p>
+<p>In the end, the server architecture for this website is pretty much the standard setup for a high-performance Drupal website. The website is very responsive and has come nowhere near reaching its max load.</p>
+<p>Custom server requirements were added to the 'Site status' report using <a href="http://api.drupal.org/api/drupal/developer--hooks--install.php/function/hook_requirements/6">hook_requirements()</a>. These custom requirements check for properly configured firewall rules, internal webservice access, and additional PHP add-ons, like Oracle's OCI8 Database drivers.</p>
+<h3>Content Management</h3>
+<p>The website, www.mskcc.org, is primarily a content and information driven site which is why it was important to focus on the website's content types and navigation system before implementing site features (aka modules). The website has 33 content types, which may seem like a lot but the broad mission of MSKCC, which is treatment, research, and education, requires some additional content type specificity. For example, doctors, researchers, and staff members all require unique content types with custom fields with unique node access rules and controls.</p>
+<div align="center">
+  <table border="0" cellpadding="5" cellspacing="1" class="center">
+  <thead>
+    <tr>
+    <th scope="col">Doctor</th>
+    <th scope="col">Researcher</th>
+    <th scope="col">Member</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><a href="/images/work/drupal_6_mskcc/doctor.png"><img alt="Doctor" src="/images-thumbnails/work/drupal_6_mskcc/doctor.png" title="Doctor"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/researcher.png"><img alt="Researcher" src="/images-thumbnails/work/drupal_6_mskcc/researcher.png" title="Researcher"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/member.png"><img alt="Member" src="/images-thumbnails/work/drupal_6_mskcc/member.png" title="Member"></a></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<p>Below are some notable content-types:</p>
+<p><strong>HTML fragment</strong><br>
+  An html fragment is small piece of HTML code that is used as global content within the website's blocks, main menus, and/or super footers. HTML fragments are primarily used by web developers to build editable pieces of specialized but customizable content.</p>
+<p><strong>View</strong><br>
+  The view content type provides content administrators an easy mechanism for build listings of data (aka <a href="http://drupal.org/project/views">Views</a>) on the website. The view content type includes several CCK fields that are passed as arguments to a selected view.</p>
+<p><strong>Teaser</strong><br>
+  The teaser content type is a simple call-out, which consists of title, image, description, and a link that redirects to a complete web page. The teaser content-type is used to create a specialized call-out for a page whose default teaser is not acceptable.</p>
+<p><strong>View the complete list of <a href="/mskcc-drupal-6-appendix/#content-types">content-types</a> used on the website.</strong></p>
+<h3>Information Architecture</h3>
+<p><strong>Menus</strong><br>
+  Out of the box, Drupal supports a primary and secondary <a href="http://drupal.org/documentation/modules/menu">menu</a>. These menus are used in the main navigation bars at the top of website. The primary and secondary menu handles the first 3 tiers of the www.mskcc.org website, and then a combination of taxonomy, books, and views manage the lower levels of the website's information architecture.</p>
+<p><strong>Taxonomy</strong><br>
+  Drupal's <a href="http://drupal.org/documentation/modules/taxonomy">taxonomy</a> system was used to manage MSK hierachical <a href="http://www.mskcc.org/doctor/specialty">medical specialities</a> and even simple <a href="http://www.mskcc.org/calendar">event categorization</a>. <span class="diffchange">I built a&nbsp;</span> custom taxonomy helper module to generate hierarchical and alphabetical taxonomy term displays for finding a doctor by specialities or department.</p>
+<p><strong>View the complete list of <a href="/mskcc-drupal-6-appendix/#taxonomy">taxonomy vocabularies</a>&nbsp;used on the website.</strong></p>
+<p><strong>Books</strong><br>
+  Besides having a lot of unique content, the website has many unique sections maintained by different users. The <a href="http://drupal.org/documentation/modules/book">book</a> module, included in Drupal core, was the best means to break down the website's very rich information architecture. A custom '<a href="http://drupal.org/project/book_helper">Book helper</a>' module was created to allow administrators to customize a book's navigation using some additionally available menu features, include disabling menu items and customizing a menu item's title.</p>
+<div align="center">
+  <table border="0" cellpadding="5" cellspacing="1" class="center">
+  <thead>
+    <tr>
+    <th>Book Helper Order Page</th>
+    <th>Taxonomy Helper Add Nodes Page</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><a href="/images/work/drupal_6_mskcc/book-helper-order.png"><img alt="Book Helper Order Page" src="/images-thumbnails/work/drupal_6_mskcc/book-helper-order.png" title="Book Helper Order Page"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/taxonomy-helper-add-nodes-tab.png"><img alt="Taxonomy Helper Add Nodes" src="/images-thumbnails/work/drupal_6_mskcc/taxonomy-helper-add-nodes-tab.png" title="Taxonomy Helper Add Nodes"></a></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<p><strong>Views</strong><br>
+  I use <a href="http://drupal.org/project/views">Views</a> religiously, for anything that is "a list of things." As long as the Views module remains as helpful with either generating a SQL query and/or with displaying the results of an SQL query, I am going to use it. An MSK views module was created to handle all views related customization including altering queries, exposed filters, and additional template preprocessing.</p>
+<div align="center">
+  <table border="0" cellpadding="5" cellspacing="1" class="center">
+  <thead>
+    <tr>
+    <th>Patient Stories</th>
+    <th>Videos Search</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><a href="/images/work/drupal_6_mskcc/patient-stories.png"><img alt="Patient Stories" src="/images-thumbnails/work/drupal_6_mskcc/patient-stories.png" title="Patient Stories"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/videos-search.png"><img alt="Videos Search" src="/images-thumbnails/work/drupal_6_mskcc/videos-search.png" title="Videos Search"></a></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<h3>Contributed Modules</h3>
+<p>The website uses 100+ <a href="http://drupal.org/project/modules">contributed modules</a>, which were selected based on their usage stats balanced against their usefulness on the MSKCC website.<br>
+  <br>
+  In fact, some key challenges were solved by using some of the less-popular contrib modules and features.&nbsp; Some examples are:<br>
+  <br>
+  <strong>Third Party Wrappers</strong><br>
+  MSKCC has several applications that are built using ASP.NET. To maintain a consistent look and feel, the main website's template must be shared with these applications. The <a href="http://drupal.org/project/third_party_wrappers">Third Party Wrappers module</a> solved this challenge by allowing the website's template to be wrapped around a "third party application" by creating header and footer snippets that developers can include in their application.</p>
+<p><strong>Node order</strong><br>
+  By default, Drupal's taxonomy system orders a term's nodes by its posted date. Doctors needed to be weighted by job title when listed within their department and specialities. The <a href="http://drupal.org/project/nodeorder">Node Order</a> module provided MSKCC with this functionality and was very easy to set up.</p>
+<p><strong>Print PDF</strong><br>
+  The <a href="http://drupal.org/project/print">Print</a> module is a very popular Drupal module that allows users to print pages and even books as PDF documents. MSKCC is using this feature to generate a PDF of a entire cancer overview, like <a href="http://www.mskcc.org/printpdf/book/export/html/1090">Lung Cancer</a>, for patients and caregivers. This feature allows those who would rather read offline to print out all the information about a cancer instead of reading it on a computer screen, or having to print each page individually.</p>
+<p><strong>See the complete list of <a href="/mskcc-drupal-6-appendix/#contrib">contributed modules</a> used on the MSKCC website.</strong></p>
+<h3>Custom Modules</h3>
+<p>There are about 50 small, custom modules that were created for the MSKCC.org website. These custom modules contain mostly <a href="http://en.wikipedia.org/wiki/Glue_code">glue code</a>, small enhancements to existing module, and tweaks to improve user experience. The decision to use small custom modules was inspired by the Unix philosophy: "<a href="http://en.wikipedia.org/wiki/Unix_philosophy">Write programs that do one thing and do it well</a>."</p>
+<p>A few noteworthy custom modules and code snippets are:</p>
+<p>The <strong>MSK toolbar </strong>module is good example of 'glue code' used to pull together the <a href="http://drupal.org/project/print">Print</a> module, <a href="http://drupal.org/project/service_links">Service links</a>, and a custom <a href="http://drupal.org/project/subscribe_to_feed">Subscribe to Feeds</a> module.</p>
+<p>The <strong style="border-style: initial; border-color: initial; ">MSK glossary</strong> module allows users to lookup cancer related terms within the <a href="http://www.cancer.gov/dictionary">NCI glossary</a>. The popups are generated using the <a href="http://drupal.org/project/beautytips">Beauty Tips</a> module.</p>
+<p style="border-style: initial; border-color: initial; "><strong style="border-style: initial; border-color: initial; ">The </strong><strong style="border-style: initial; border-color: initial; ">MSK disaster recovery</strong> admin settings form is used to track and disable certain aspects of the website in the event of the www.mskcc.org website having to be moved to the MSKCC disaster recovery data center.</p>
+<div align="center">
+  <table border="0" cellpadding="5" cellspacing="1" class="center">
+  <thead>
+    <tr>
+    <th scope="col">MSK Toolbar</th>
+    <th scope="col">MSK NCI Glossary</th>
+    <th scope="col">MSK DIsaster Recovery</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><a href="/images/work/drupal_6_mskcc/toolbar.png"><img alt="MSK Toolbar" src="/images-thumbnails/work/drupal_6_mskcc/toolbar.png" title="MSK Toolbar"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/glossary.png"><img alt="NCI Glossary Integration" src="/images-thumbnails/work/drupal_6_mskcc/glossary.png" title="NCI Glossary Integration"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/disaster-recovery.png"><img alt="MSK Disaster Recovery Page" src="/images-thumbnails/work/drupal_6_mskcc/disaster-recovery.png" title="MSK Disaster Recovery Page"></a></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<p><strong>See the complete list of <a href="/mskcc-drupal-6-appendix/#custom">custom modules</a> used on the website.</strong></p>
+<h3>Sandbox Modules</h3>
+<p>While planning and implementing MSKCC's custom modules, I tried to make sure that any re-usable functionality was abstracted out into generic modules that could be shared with the Drupal community. Meanwhile, the great <a href="http://groups.drupal.org/drupal-org-git-team">GIT migration</a>&nbsp;occured which changed and improved how the Drupal project and its contributed modules were being developed. One of the coolest changes was the addition of developer sandboxes. Sandboxes are basically open sourced Drupal projects that are not fully-fledged projects but they give developers a way to share their code. This is exactly what I intended to do.</p>
+<p>During Rand Fay's DrupalCon presentation "<a href="http://chicago2011.drupal.org/sessions/git-drupal-org-it-s-easier-you-think">Git on Drupal.org: It's Easier Than You Think!</a>", I asked the question "should developers just sandbox all their code" while working on a Drupal website. The answer I got was "yes," so I decided to build and share my sandbox. I restructured my 'sites/all/modules' directory to reflect this by adding a 'sandbox' directory next to my 'contrib', 'custom', and 'dev' directories. I would describe this new 'sandbox' directory as code that sits somewhere between being completely custom to that which can one day being contributed back to the Drupal community.</p>
+<p><strong>See the complete list of my <a href="/mskcc-drupal-6-appendix/#sandbox">sandbox modules</a>.</strong></p>
+<h3>Templates</h3>
+<table align="right" border="0" cellpadding="5" cellspacing="1" class="right">
+  <thead>
+  <tr>
+    <th scope="col">MSK Comps Report</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr>
+    <td><a href="/images/work/drupal_6_mskcc/comps.png"><img alt="MSK Comps Report" src="/images-thumbnails/work/drupal_6_mskcc/comps.png" title="MSK Comps Report"></a></td>
+  </tr>
+  </tbody>
+</table>
+<p>The website uses the <a href="http://drupal.org/project/zen">Zen base theme</a> and follows the style guidelines set forth by this clean and well-done theme. I also applied the concept of the Drupal 7 stark theme by copying and streamlining a lot of CSS files from core and contrib. One easy optimization was to remove any admin related classes from the main theme since they would never be used because the website uses a separate admin theme. The site admin them is the backport of the Drupal 7 <a href="http://drupal.org/project/seven">Seven admin theme</a>.</p>
+<p>Similar, to the solution of using hook_requirements() to add additional MSKCC specific requirements to the 'Site status' report, I created a custom <a href="http://www.mskcc.org/comps">MSK comps reports</a> to track the development progress of the website's design templates along with links to working examples for each template.</p>
+<h3>Panels</h3>
+<p><a href="http://drupal.org/project/panels">Panels</a> are used to layout the content on MSKCC's landing pages. Using Panel nodes allowed for a node's CCK fields to be easily displayed in panel panes.</p>
+<p>Panels, like everything in Drupal, is extensible so I created some custom panel layouts, styles, and content types to help build MSKCC's 20+ landing pages.</p>
+<p><strong>Layouts</strong><br>
+  MSKCC's custom panel layouts are simply copies of the default layouts include with the Panels module with a select menu added to set the default panel pane column widths to line up with a 960 <a href="http://en.wikipedia.org/wiki/Grid_%28page_layout%29">grid</a>.</p>
+<p><strong>Styles</strong><br>
+  A custom MSK stylizer was built to allow editors to select pre-defined custom classes for each panel pane. The <a href="http://drupal.org/project/skinr">Skinr module</a> provides very similar functionality for an entire theme but the website only required this functionality for panel panes so it was easier to just implement a custom stylizer (which was copied from the default stylizer included with ctools).</p>
+<p><strong>Content-types</strong><br>
+  Finally, custom (Panel) content-types where required to build the landing page slideshows and video players but whenever feasible I used <a href="http://dev.nodeone.se/node/555">Views content panes</a> to build custom content-types.</p>
+<div align="center">
+  <table border="0" cellpadding="5" cellspacing="1" class="center">
+  <thead>
+    <tr>
+    <th>MSK (960) Panels Layout</th>
+    <th>MSK Stylizer</th>
+    <th>MSK Content Type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><a href="/images/work/drupal_6_mskcc/panels-layout-cancer-care.png"><img alt="Example of MSK Panels Layout" src="/images-thumbnails/work/drupal_6_mskcc/panels-layout-cancer-care.png" title="Example of MSK Panels Layout"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/panels-stylizer-cancer-care.png"><img alt="Example of MSK Panels Stylizer" src="/images-thumbnails/work/drupal_6_mskcc/panels-stylizer-cancer-care.png" title="Example of MSK Panels Stylizer"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/panels-content-type-cancer-care.png"><img alt="Example of MSK Panels Content Type" src="/images-thumbnails/work/drupal_6_mskcc/panels-content-type-cancer-care.png" title="Example of MSK Panels Content Type"></a></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<h3>Finally, Some Lessons Learned...</h3>
+<h4>Follow Drupal's best practices</h4>
+<p>One of the key factors behind Drupal's healthy community of code contributors is the project's well-defined and enforced best practices. Before switching to Drupal, the only best practice I followed was trying to write clean code. Following Drupal best practices was the easiest way to improve my programming skills and the overall quality of the website's code.</p>
+<p>Below are the five Drupal <a href="http://drupal.org/best-practices">best practices</a> that I worked to adhered to for the MSKCC website:</p>
+<ol>
+  <li><strong>Code standards</strong><br>
+  Drupal's <a href="http://drupal.org/node/318">code standards</a> are very well documented. The <a href="http://drupal.org/project/coder">Coder module</a> is extremely&nbsp;helpful in correcting any bad habits and mistakes.</li>
+  <li><strong>Version control</strong><br>
+  Use <a href="http://drupal.org/node/299067">version control</a>. `nuff said</li>
+  <li><strong>API documentation</strong><br>
+  Generally, developers hate writing documentation, to encourage myself and all future developers on the website to write decent API documentation, we setup a secure api.mskcc.org website using the using the <a href="http://drupal.org/project/api">API module</a>. Seeing one's lack of documentation or just grammatical mistakes on a website can be a great motivator.</li>
+  <li><strong>Issue tracking</strong><br>
+  Getting the project team, including myself, to switch from using email to track issues to an actual issue tracking system took considerable effort but everyone is now happily using <a href="http://unfuddle.com/">Unfuddle</a> to manage issues.</li>
+  <li><strong>Unit testing</strong><br>
+  <a href="http://drupal.org/simpletest">SimpleTest</a> is now part of Drupal 7 and this is the only best practice that I admittedly fell short of implementing. Unit testing is something I hope to implement during the upgrade to D7.</li>
+</ol>
+<h4>Namespace everything.</h4>
+<p>Originally, I started out namespacing just my modules with msk_* and soon realized it helps to namespace every custom object including Views, Panels, Rules, and even css classes. I namespaced all my views with 'msk_', then include the type of view, and finally a unique name for the view. For example, the <a href="http://www.mskcc.org/cancer-care/clinical-trials/clinical-trial">clinical trials</a> view is named 'msk_directory_trials' and the view used for the <a href="http://www.mskcc.org/news">news feed</a> content pane is named 'msk_content_pane_news_feed'.</p>
+<h4>Export everything.</h4>
+<p>The project does not use the <a href="http://drupal.org/project/features">Features module</a> but does export everything into code, this includes Views, Panels, Rules, and ImageCache. The website uses the <a href="http://drupal.org/project/strongarm">Strongarm module</a> to export almost all of the website's configuration settings (aka variables) into code. I created a <a href="http://drupal.org/sandbox/jrockowitz/1424426">Strongarm dump </a>module which allows every system configuration page to be easily exported. When the site is updated to D7, it will use Features module.</p>
+<h4>Document everything.</h4>
+<p>I personally use Google Docs to document and share everything. I also keep an organized list of any useful modules and/or Drupal related blog posts. There is no 100% perfect resource for Drupal, so it is worth tracking discussions about tricks, hacks, and APIs for modules like Views and Panels.</p>
+<p>For developer documentation, I made sure to include the recommended <a href="http://drupal.org/node/447604">README.txt</a> files and API comments with every module and setup a series of text README files for coding standards, installation guides, changes and issues with module, etc., which are stored in SVN and available via a secure help section within the MSKCC website.</p>
+<div align="center">
+  <table border="0" cellpadding="5" cellspacing="1" class="center">
+  <thead>
+    <tr>
+    <th scope="col">Name Spaced Exported Views</th>
+    <th scope="col">Exported/Strongarmed Variables</th>
+    <th scope="col">MSK README.txt Files</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+    <td><a href="/images/work/drupal_6_mskcc/namespacing-views.png"><img alt="Name Spaced Exported Views" src="/images-thumbnails/work/drupal_6_mskcc/namespacing-views.png" title="Name Spaced Exported Views"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/strongarm-variables.png"><img alt="Strongarm Dump Module" src="/images-thumbnails/work/drupal_6_mskcc/strongarm-variables.png" title="Strongarm Dump Module"></a></td>
+    <td><a href="/images/work/drupal_6_mskcc/documentation.png"><img alt="MSK README.txt Files" src="/images-thumbnails/work/drupal_6_mskcc/documentation.png" title="MSK README.txt Files"></a></td>
+    </tr>
+  </tbody>
+  </table>
+</div>
+<h3>Conclusions</h3>
+<p>Drupal works... maybe this is too simple of a statement for a complex web-site project, using close to 200 modules, but in the end, Drupal accomplished what it was designed to do: build a website. Drupal allowed MSKCC to focus on their website's mission and not the technology behind it. In the end, MSKCC's goals were met because the website looks great and the information is easy to find.</p>
+<h3>About the Team</h3>
+<p>The launch of the new MSKCC.org was a joint effort of four different groups/organizations who were responsible for design, content, web development, and infrastructure. <a href="http://mcdpartners.com/">Magnani, Caruso and Dutton (MCD)</a> designed the new site and re-worked the information architecture. <a href="/">The Big Blue House</a>&nbsp;(My company) was responsible for all Drupal development. MSKCC's Department of Information Systems configured and administers the enterprise LAMP server stack. Finally, MSKCC's Department of Public Affairs manages the website day-to-day, and is responsible for the high-quality content and beautiful photography, as well as ongoing strategy and optimization.</p>

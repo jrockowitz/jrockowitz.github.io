@@ -98,3 +98,8 @@ hr {
     text-align: center;
   }
 }
+
+.form-group.required label:after {
+  content:" *";
+  color: $brand-danger;
+}

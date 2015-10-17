@@ -1,7 +1,7 @@
 ---
 layout: page
 icon: 'fa fa-cogs'
-title: About Website (README)
+title: About Website (README.md)
 permalink: /readme/
 ---
 
@@ -35,11 +35,15 @@ permalink: /readme/
 
 ## TODO
 
-- Add icons to page titles
-
 - Add and remove `environment: development` from _config.yml when grunt serve
   is called.
     - https://www.npmjs.com/package/grunt-sed
+
+- Editorial
+
+    - Resume
+    - Case Study
+    
 
 --- 
 
