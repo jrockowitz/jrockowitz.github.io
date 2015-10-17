@@ -1,5 +1,6 @@
 ---
 layout: page
+icon: 'fa fa-cogs'
 title: About Website (README)
 permalink: /readme/
 ---

@@ -79,6 +79,11 @@ function drush_jekyll_export() {
     19 => 40, // Sony
     20 => 40, // Ethan Allen
   ];
+  $custom_icons = [
+    1 => 'fa fa-user', // About
+    5 => 'fa fa-file', // Resume
+    2 => 'fa fa-quote-left', // Experience
+  ];
 
   $nodes = node_load_multiple(array(), array('status' => 1));
   foreach ($nodes as $nid => $node) {
@@ -92,7 +97,9 @@ function drush_jekyll_export() {
 
     // Set front matter
     $front_matter = [];
-    $front_matter['layout'] = 'page';
+    if (isset($custom_icons[$nid])) {
+      $front_matter['icon'] = $custom_icons[$nid];
+    }
     $front_matter['title'] = (isset($custom_titles[$nid])) ? $custom_titles[$nid] : $node->title;
     if ($is_work) {
       $front_matter['short_title'] = $custom_short_titles[$nid];
@@ -100,6 +107,7 @@ function drush_jekyll_export() {
     if ($node->body['und'][0]['summary']) {
       $front_matter['description'] = $node->body['und'][0]['summary'];
     }
+    $front_matter['layout'] = 'page';
 
     // Set permalink.
     if (isset($custom_filenames[$nid])) {
