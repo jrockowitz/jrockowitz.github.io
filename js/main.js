@@ -66,11 +66,23 @@
     // Initialize equal heights.
     equalHeight();
 
+    // Set orientation change event handler.
+    $(window).on('orientationchange', equalHeight);
+
     // Reset equal height at each break point. Adding 1 to insure heights are reset after css media queries fire.
     for (var breakPoint in breakPoints) {
       enquire.register('screen and (min-width: ' + (breakPoints[breakPoint].width+1) + 'px)', {match: equalHeight});
     }
   });
+
+  /**
+   * Anchors
+   */
+  if (location.hash && $(location.hash).length) {
+    var topHeight = $(location.hash).offset().top - 70; // 60px (Toolbar) + 10px (Padding)
+    $('body, html').animate({scrollTop: topHeight}, '500', 'swing');
+  }
+
 
 })(jQuery);
 

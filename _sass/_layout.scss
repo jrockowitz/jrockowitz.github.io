@@ -9,16 +9,11 @@ body {
   margin: 50px 0 0 0;
 }
 
-hr {
-  border-top-width: 4px;
-}
-
 /**
- * Header
+ * Header/Nav bar
  */
-.site-image {
-  display: block;
-  border-bottom: 4px solid $navbar-inverse-bg;
+.navbar {
+  margin-bottom: 0;
 }
 
 .navbar-brand {
@@ -31,6 +26,11 @@ hr {
   &::first-letter {
     font-weight: bold;
   }
+}
+
+.site-image {
+  display: block;
+  border-bottom: 4px solid $navbar-inverse-bg;
 }
 
 /**
@@ -69,17 +69,6 @@ hr {
 }
 
 /**
- * Jumbotron
- */
-.jumbotron {
-  margin-bottom: 0;
-
-  h1 {
-    margin-top: 0;
-  }
-}
-
-/**
  * Footer
  */
 .footer {
@@ -102,4 +91,15 @@ hr {
 .form-group.required label:after {
   content:" *";
   color: $brand-danger;
+}
+
+/**
+ * Jumbotron
+ */
+.jumbotron {
+  margin-bottom: 0;
+
+  h1 {
+    margin-top: 0;
+  }
 }

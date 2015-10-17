@@ -1,8 +1,6 @@
 # Site settings
 title: The Big Blue House
-email: https://github.com/jrockowitz/
-description: >
-  Welcome to the The Big Blue House.
+description: Welcome to the The Big Blue House.
 baseurl: ""
 url: "http://thebigbluehouse.com/"
 
@@ -12,6 +10,7 @@ collections:
     title: Work
     output: true
 
+# Default settings
 defaults:
   - scope:
       path: work
@@ -19,14 +18,12 @@ defaults:
     values:
       layout: page
 
-# Build settings
+# Build settings.
 markdown: kramdown
 
+# Include hidden directories.
 include:
   - _pages
-  - images
-  - images_srcset
-  - vendor
 
 # Exclude directories and files
 exclude:

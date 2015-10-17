@@ -12,15 +12,8 @@ module.exports = function(grunt) {
           'bower_components/enquire/dist/enquire.js',
           'vendor/jquery.mobile.custom/jquery.mobile.custom.js'
         ],
-        dest: 'assets/js/vendor.js'
+        dest: 'js/vendor.js'
       },
-      css: {
-        src: [
-          'bower_components/font-awesome/css/font-awesome.css',
-        ],
-        dest: 'assets/css/vendor.css'
-      }
-
     },
     copy: {
       "bootstrap-fonts": {
@@ -39,7 +32,7 @@ module.exports = function(grunt) {
             expand: true,
             cwd: 'bower_components/font-awesome/fonts',
             src: ['**', '.**'],
-            dest: 'assets/fonts'
+            dest: 'fonts'
           }
         ]
       }
@@ -47,9 +40,6 @@ module.exports = function(grunt) {
     cssmin: {
       dist: {
         files: {
-          'assets/css/vendor.min.css': [
-            'assets/css/vendor.css'
-          ],
           'css/main.min.css': [
             '_site/css/main.css'
           ]
@@ -59,7 +49,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'assets/js/vendor.min.js': 'assets/js/vendor.js',
+          'js/vendor.min.js': 'js/vendor.js',
           'js/main.min.js': 'js/main.js'
         }
       }

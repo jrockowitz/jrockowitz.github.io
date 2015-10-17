@@ -30,7 +30,7 @@ permalink: /readme/
 - [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 - [jQuery](https://jquery.com/)
 - [jQuery Mobile](https://jquerymobile.com/)
-  - [Events](https://api.jquerymobile.com/category/events/): Touch 
+  - [Events](https://api.jquerymobile.com/category/events/): Touch & Orientation
 
 --- 
 
@@ -248,3 +248,9 @@ open http://jrockowitz.github.io/readme
     - <http://lorempixel.com/400/200>
 - <http://loremflickr.com/>
     - <http://loremflickr.com/320/240>
+
+---
+
+## TODO
+
+- Convert vendor CSS (in bower_components) to SASS and include in main.scss.  
