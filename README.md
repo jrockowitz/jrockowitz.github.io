@@ -197,15 +197,6 @@ open http://jrockowitz.github.io/readme
 
 --- 
 
-## Notes
-
-- Bower components are included in the repository so that GitHub pages, using 
-  Jekyll can compile the SASS and build the website. 
-
-- Drafts could be used for a private blog or even /notes
-
---- 
-
 ## References
 
 ### [GitHub Pages](https://pages.github.com/)
@@ -249,8 +240,4 @@ open http://jrockowitz.github.io/readme
 - <http://loremflickr.com/>
     - <http://loremflickr.com/320/240>
 
----
-
-## TODO
-
-- Convert vendor CSS (in bower_components) to SASS and include in main.scss.  
+---  
