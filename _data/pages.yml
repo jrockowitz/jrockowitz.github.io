@@ -5,7 +5,7 @@
       url: /about/
       icon: 'fa fa-user'
     - title: My Experience
-      url: /about-experience/
+      url: /experience/
       icon: 'fa fa-quote-left'
       separator: true
     - title: This Website

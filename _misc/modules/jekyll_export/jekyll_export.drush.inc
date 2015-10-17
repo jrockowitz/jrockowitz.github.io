@@ -29,7 +29,7 @@ function drush_jekyll_export() {
     5, // Resume
   ];
   $custom_filenames = [
-    2 => 'about-experience',
+    2 => 'experience',
     5 => 'resume',
     16 => 'inettool',
     9 => 'mskcc-inettool',
