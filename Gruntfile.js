@@ -10,7 +10,7 @@ module.exports = function(grunt) {
           'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
           'bower_components/jquery.equal-height/jquery.equal-height.js',
           'bower_components/enquire/dist/enquire.js',
-          'js/vendor/jquery.mobile.custom/jquery.mobile.custom.js'
+          'vendor/jquery.mobile.custom/jquery.mobile.custom.js'
         ],
         dest: 'assets/js/vendor.js'
       },
@@ -45,17 +45,19 @@ module.exports = function(grunt) {
       }
     },
     cssmin: {
-      options: {
-        shorthandCompacting: false,
-        roundingPrecision: -1
-      },
-      target: {
-        files: {
-          'assets/css/vendor.min.css': [
-            'assets/css/vendor.css'
-          ]
+      vendor: {
+        options: {
+          shorthandCompacting: false,
+          roundingPrecision: -1
+        },
+        target: {
+          files: {
+            'assets/css/vendor.min.css': [
+              'assets/css/vendor.css'
+            ]
+          }
         }
-      }
+      },
     },
     uglify: {
       dist: {
@@ -65,7 +67,6 @@ module.exports = function(grunt) {
         }
       }
     },
-
     responsive_images: {
       thumbnails: {
         options: {
@@ -109,7 +110,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
-
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-responsive-images');
 

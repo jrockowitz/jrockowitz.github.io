@@ -39,11 +39,38 @@ function drush_jekyll_export() {
     28 => 'mskcc-drupal-6-appendix',
     29 => 'mskcc-drupal-6-presentation',
   ];
+  $custom_titles = [
+    2 => 'My Experience',
+    9 => 'The Old MSKCC.org',
+    10 => 'MyMSKCC',
+    11 => 'Cancer Prediction Tools',
+    13 => 'Gerstner Sloan-Kettering Graduate School of Biomedical Sciences',
+    14 => 'Weill Cornell Graduate School of Medical Sciences',
+    15 => 'Starr Cancer Consortium',
+    16 => 'Inettool: Content Management System',
+    18 => 'Time Magazine Online Media Planner',
+    19 => 'Sony CD-It',
+    20 => 'Ethan Allen Extranet',
+    27 => 'The New MSKCC.org: Drupal 6 Case Study',
+  ];
+  $custom_short_titles = [
+    9 => 'Memorial Sloan Kettering (Old)',
+    10 => 'MyMSKCC',
+    11 => 'Cancer Prediction Tools',
+    13 => 'Gerstner Sloan-Kettering',
+    14 => 'Weill Cornell Graduate School',
+    15 => 'Starr Cancer Consortium',
+    16 => 'Inettool (CMS)',
+    18 => 'Time Magazine',
+    19 => 'Sony',
+    20 => 'Ethan Allen',
+    27 => 'Memorial Sloan Kettering (Drupal 6)',
+  ];
   $custom_weights = [
     27 => 20, // D6 - MSKCC
+    9 => 31, // Inettool - MSKCC
     11 => 21, // Nomograms
     16 => 30, // Inettool
-    9 => 31, // Inettool - MSKCC
     13 => 32, // Inettool - GSK,
     14 => 33, // Inettool - Weill
     15 => 34, // Inettool - Starr
@@ -66,7 +93,10 @@ function drush_jekyll_export() {
     // Set front matter
     $front_matter = [];
     $front_matter['layout'] = 'page';
-    $front_matter['title'] = $node->title;
+    $front_matter['title'] = (isset($custom_titles[$nid])) ? $custom_titles[$nid] : $node->title;
+    if ($is_work) {
+      $front_matter['short_title'] = $custom_short_titles[$nid];
+    }
     if ($node->body['und'][0]['summary']) {
       $front_matter['description'] = $node->body['und'][0]['summary'];
     }
@@ -127,8 +157,6 @@ function drush_jekyll_export() {
     // DEBUG: Front Matter
     // drush_print(yaml_emit($front_matter));drush_print();
 
-    drush_print(' ');
-
   }
   return TRUE;
 }
@@ -166,9 +194,10 @@ function _drush_jekyll_export_body($body, &$front_matter) {
   $body = preg_replace('#<p><strong>(.*?)</strong><br />\s*#s', '<h4>\1</h4>' . "\n" . '<p>', $body);
 
   if (strpos($body, '<!--break-->') !== FALSE) {
-    list($summary, $body) = explode('<!--break-->', $body);
-    $body = trim($body) ?: $summary;
+    list($summary, $ignore_body) = explode('<!--break-->', $body);
     $front_matter['description'] = preg_replace('#^<p>(.*?)</p>\s*$#', '\1', $summary);
+    $body = str_replace('<!--break-->', '', $body);
+
   }
 
   return $body;

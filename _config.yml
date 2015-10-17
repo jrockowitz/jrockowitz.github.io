@@ -25,9 +25,10 @@ defaults:
 markdown: kramdown
 
 include:
+  - _pages
   - images
   - images_srcset
-  - _pages
+  - vendor
 
 # Exclude directories and files
 exclude:

@@ -1,4 +1,4 @@
-<header class="site-header">
+<header class="site-header hidden-print">
 
   <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class="container-fluid">
@@ -8,18 +8,17 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> {{ site.title }}</a>
+        <a class="navbar-brand" href="{{ site.baseurl }}/"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> <span class="navbar-brand-title">{{ site.title }}</span></a>
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
 
         <ul class="nav navbar-nav">
-
           {% for node in site.data.pages %}
             {% if node.links or node.collection %}
               <li class="dropdown{% if page.url == node.url %} active"{% endif %}">
               <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                 <span class="{{ node.icon }}" aria-hidden="true"></span>
-                {{ node.title }}
+                <span class="dropdown-toggle-title">{{ node.title }}</span>
                 <span class="caret"></span>
               </a>
                 <ul class="dropdown-menu">
@@ -34,7 +33,7 @@
                 {% if node.collection %}
                   {% assign collection = node.collection %}
                   {% for link in site.collections.[collection].docs %}
-                     <li><a href="{{ link.url | prepend: site.baseurl }}">{{ link.title }}</a></li>
+                     <li><a href="{{ link.url | prepend: site.baseurl }}">{{ link.short_title }}</a></li>
                   {% endfor %}
                 {% endif %}
 
@@ -45,7 +44,7 @@
               <li{% if page.url == node.url %} class="active"{% endif %}>
                 <a href="{{ node.url | prepend: site.baseurl }}">
                   <span class="{{ node.icon }}" aria-hidden="true"></span>
-                  {{ node.title }}
+                  <span class="dropdown-toggle-title">{{ node.title }}</span>
                 </a>
               </li>
             {% endif %}
@@ -58,6 +57,9 @@
     </div>
   </nav>
 
-  <div class="site-image"><img src="/images/bigbluehouse-street.jpg" title="The Big Blue House" class="img-responsive" /></div>
+  <div class="site-image">
+    <img src="/images/bigbluehouse-lg.jpg" title="The Big Blue House" class="img-responsive hidden-xs" />
+    <img src="/images/bigbluehouse-sm.jpg" title="The Big Blue House" class="img-responsive visible-xs-block" />
+  </div>
 
 </header>

@@ -3,13 +3,11 @@
   links:
     - title: About Me
       url: /about/
-    - title: Experience
+    - title: My Experience
       url: /about-experience/
       separator: true
-    - title: Website
+    - title: This Website
       url: /readme/
-    - title: Style-Guide (for Bootstrap)
-      url: /style-guide/
 
 - title: Resume
   icon: 'fa fa-file'

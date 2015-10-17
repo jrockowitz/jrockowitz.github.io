@@ -1,6 +1,6 @@
 ---
 layout: page
-title: README
+title: About Website (README)
 permalink: /readme/
 ---
 
@@ -8,6 +8,7 @@ permalink: /readme/
 
 - URL: <http://jrockowitz.github.io/>
 - GIT: <https://github.com/jrockowitz/jrockowitz.github.io>
+- Style-Guide: [http://jrockowitz.github.io/style-guide/](/style-guide/)
 
 --- 
 
@@ -33,21 +34,11 @@ permalink: /readme/
 
 ## TODO
 
-Styles
-    - Increase font-size
+- Add icons to page titles
 
 - Add and remove `environment: development` from _config.yml when grunt serve
   is called.
-
-- Look into [RequireJS: A JavaScript file and module loader.](http://requirejs.org)
-
-- Content
-  - Merge About with Experience  
-  
-## Questions
-
-- Best way to extend bootstrap.
-
+    - https://www.npmjs.com/package/grunt-sed
 
 --- 
 
@@ -57,7 +48,7 @@ Styles
   
 Setup GitHub Pages respository. 
 
-- [GitHub Pages | Jekyll](http://jekyllrb.com/docs/github-pages/)
+- [GitHub Pages: Jekyll](http://jekyllrb.com/docs/github-pages/)
   
 ### Boilerplate Jekyll site
     
@@ -71,12 +62,14 @@ Replace 'Hello World' with a boilerplate Jekyll site.
      
 ### Commit and push changes to GitHub
 
-    cd local.jrockowitz.github.io
-    git add --all
-    git commit -am"Boilerplate Jekyll site"
-    git push
-    open http://http://jrockowitz.github.io/
-    # Refresh browser until GitHub regenerates your website.
+~~~
+cd local.jrockowitz.github.io
+git add --all
+git commit -am"Boilerplate Jekyll site"
+git push
+open http://http://jrockowitz.github.io/
+# Refresh browser until GitHub regenerates your website.
+~~~
 
 ### Initial to Jekyll site
 
@@ -84,10 +77,10 @@ Replace 'Hello World' with a boilerplate Jekyll site.
   - [Organizing Jekyll Pages](http://damonbauer.me/organizing-jekyll-pages/)
 
 
-    # Update Jekyll configuration 
-    cd local.jrockowitz.github.io
-    edit _config.yml
-    
+~~~
+cd local.jrockowitz.github.io
+edit _config.yml
+~~~
     
 ### Use NodeJs Package Manager (npm) to install Grunt and Bower.
 
@@ -97,14 +90,16 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 - [Bower: A package manager for the web](http://bower.io)
 
 
-    # Setup and execute npm install
-    cd local.jrockowitz.github.io
-    edit package.json
-    npm install
-    
-    # Add node_modules to .gitignore
-    cd local.jrockowitz.github.io
-    echo 'node_modules' >> ~/.gitignore
+~~~
+# Setup and execute npm install
+cd local.jrockowitz.github.io
+edit package.json
+npm install
+
+# Add node_modules to .gitignore
+cd local.jrockowitz.github.io
+echo 'node_modules' >> ~/.gitignore
+~~~
    
 ### Use Bower to download jQuery and Bootstrap SASS.
 
@@ -113,27 +108,30 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 - [Bootstrap for Sass](https://github.com/twbs/bootstrap-sass)
 
 
-    cd local.jrockowitz.github.io
-    edit bower.json
-    bower install
-      
-    - or -
-    
-    cd local.jrockowitz.github.io
-    bower install jquery
-    bower install bootstrap-sass-official
+~~~
+cd local.jrockowitz.github.io
+edit bower.json
+bower install
+  
+- or -
+
+cd local.jrockowitz.github.io
+bower install jquery
+bower install bootstrap-sass-official
+~~~
 
 ### Setup basic Grunt task runner
 
 - [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat): Concatenate files.
 - [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify): Minify files with UglifyJS
 - [grunt-exec](https://github.com/jharding/grunt-exec)
-
-
     
-    cd local.jrockowitz.github.io
-    edit GruntFile.json
-    grunt
+
+~~~
+cd local.jrockowitz.github.io
+edit GruntFile.json
+grunt
+~~~
 
 ### Remove Jekyll's Boilerplate SASS and HTML.
 
@@ -147,7 +145,9 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
 ### Add this README.md file to site.
 
-    open http://jrockowitz.github.io/readme
+~~~
+open http://jrockowitz.github.io/readme
+~~~
 
 ### Build a style-guide/code snippet page 
 
@@ -195,10 +195,13 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
 - [Bootstrap open image in modal](http://stackoverflow.com/questions/25023199/bootstrap-open-image-in-modal)
 
-### TODO: Finalize Migration
+### Responsive Grid for Image Thumbnails
 
-### TODO: Adjust Styles
+- [Bootstrap Grid System](http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/bootstrap-grid-system.php)
 
+### Adjust Styles using Variables and CSS overrides
+
+- <https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss>
 
 ### More Information about using Jekyll on GitHub Pages
     
@@ -235,9 +238,9 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
 ### [Liquid for Designers](https://github.com/shopify/liquid/wiki/Liquid-for-Designers)
 
-- [Printing / Echoing / Dumping Arrays | liquid](https://github.com/Shopify/liquid/issues/121)
+- [Printing / Echoing / Dumping Arrays : liquid](https://github.com/Shopify/liquid/issues/121)
 
-### [Bootstrap])http://getbootstrap.com/)
+### [Bootstrap](http://getbootstrap.com/)
 
 - Style Guides
     - <http://getbootstrap.com/css/>
@@ -246,7 +249,8 @@ Replace 'Hello World' with a boilerplate Jekyll site.
 
 - Tutorials
    - [Bootstrap 3 Tutorial](http://www.w3schools.com/bootstrap/default.asp)
-
+   - [Bootstrap Tutorial : Tutorial Republic](http://www.tutorialrepublic.com/twitter-bootstrap-tutorial/)
+   
 ### HTML/Front-end tools
 
 - [HTML Ipsum](http://html-ipsum.com/)
