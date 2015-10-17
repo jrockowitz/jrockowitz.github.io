@@ -7,19 +7,20 @@
 
   "use strict";
 
+  /**
+   * Breakpoints
+   *
+   * Copied from: bower_components/bootstrap-sass-official/assets/stylesheets/bootstrap/_variables.scss
+   */
   var breakPoints = {
     xs: {width: 480},
     sm: {width: 768},
     md: {width: 992},
     lg: {width: 1200},
   };
-  for (var breakPoint in breakPoints) {
-    breakPoints[breakPoint].minWidth = 'screen and (min-width: ' + breakPoints[breakPoint].width + 'px)';
-    breakPoints[breakPoint].maxWidth = 'screen and (max-width: ' + breakPoints[breakPoint].width + 'px)';
-  }
 
   /**
-   * Set contact form action to formspree.io and the _next to the thankyou page.
+   * Contact Form
    */
   $('#contact').submit(function() {
     // Set the form action using javascript helps obscure my email address
@@ -29,9 +30,10 @@
   });
 
   /**
-   * Add swipe event handling to carousel.
+   * Carousel
    *
-   * http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/
+   * - Add swipe event handling to carousel.
+   *   http://lazcreative.com/blog/adding-swipe-support-to-bootstrap-carousel-3-0/
    */
   $("#carousel").swiperight(function() {
     $(this).carousel('prev');
@@ -69,9 +71,9 @@
     // Set orientation change event handler.
     $(window).on('orientationchange', equalHeight);
 
-    // Reset equal height at each break point. Adding 1 to insure heights are reset after css media queries fire.
+    // Reset equal height at each break point. Adding +1 to insure heights are reset after css media queries fire.
     for (var breakPoint in breakPoints) {
-      enquire.register('screen and (min-width: ' + (breakPoints[breakPoint].width+1) + 'px)', {match: equalHeight});
+      enquire.register('screen and (min-width: ' + (breakPoints[breakPoint].width+1) + 'px)', equalHeight);
     }
   });
 
@@ -79,7 +81,8 @@
    * Anchors
    */
   if (location.hash && $(location.hash).length) {
-    var topHeight = $(location.hash).offset().top - 70; // 60px (Toolbar) + 10px (Padding)
+    // Smooth scroll to anchors (by id) and account for fixed navbar.
+    var topHeight = $(location.hash).offset().top - 70; // 60px (Navbar) + 10px (Padding)
     $('body, html').animate({scrollTop: topHeight}, '500', 'swing');
   }
 
