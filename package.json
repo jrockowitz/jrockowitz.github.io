@@ -16,7 +16,8 @@
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-uglify": "*",
     "grunt-exec": "*",
-    "grunt-responsive-images" : "*"
+    "grunt-responsive-images" : "*",
+    "grunt-sed": "*"
   },
   "engines": {
     "npm": "1.2.x"

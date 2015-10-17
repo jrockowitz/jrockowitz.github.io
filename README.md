@@ -1,6 +1,6 @@
 ---
 layout: page
-icon: 'fa fa-cogs'
+icon: fa fa-cogs
 title: About Website (README.md)
 permalink: /readme/
 ---
@@ -23,6 +23,7 @@ permalink: /readme/
     - [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify)
     - [grunt-exec](https://github.com/jharding/grunt-exec)
     - [grunt-responsive-images](https://github.com/andismith/grunt-responsive-images)
+    - [grunt-sed](https://github.com/jharding/grunt-sed)
 - [Bower](http://bower.io/)
 - [Bootstrap](http://getbootstrap.com/)
 - [enquire.js](wicky.nillia.ms/enquire.js/)

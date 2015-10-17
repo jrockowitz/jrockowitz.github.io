@@ -92,6 +92,18 @@ module.exports = function(grunt) {
         }]
       }
     },
+    sed: {
+      dev: {
+        path: '_config.yml',
+        pattern: 'environment: production',
+        replacement: 'environment: development'
+      },
+      prod: {
+        path: '_config.yml',
+        pattern: 'environment: development',
+        replacement: 'environment: production'
+      }
+    },
     exec: {
       build: {
         cmd: 'jekyll build'
@@ -112,10 +124,11 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-responsive-images');
+  grunt.loadNpmTasks('grunt-sed');
 
-  grunt.registerTask('build', [ 'copy', 'concat', 'cssmin', 'uglify', 'responsive_images']);
+  grunt.registerTask('build', [ 'copy', 'concat', 'cssmin', 'uglify', 'responsive_images', 'sed:dev']);
   grunt.registerTask('default', [ 'build', 'exec:build' ]);
   grunt.registerTask('serve', [ 'build', 'exec:serve' ]);
-  grunt.registerTask('deploy', [ 'default', 'exec:deploy' ]);
+  grunt.registerTask('deploy', [ 'default', 'sed:prod', 'exec:deploy' ]);
 
 };
