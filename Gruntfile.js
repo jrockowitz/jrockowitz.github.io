@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     concat: {
       js: {
         src: [
-          'bower_components/jquery/jquery.js',
+          'bower_components/jquery/dist/jquery.js',
           'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
           'bower_components/jquery.equal-height/jquery.equal-height.js',
           'bower_components/enquire/dist/enquire.js',

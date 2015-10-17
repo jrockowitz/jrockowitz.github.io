@@ -34,14 +34,6 @@ permalink: /readme/
 
 --- 
 
-## TODO
-
-- Add and remove `environment: development` from _config.yml when grunt serve
-  is called.
-    - https://www.npmjs.com/package/grunt-sed
-
---- 
-
 ## Setup
   
 ### 'Hello World' GitHub Pages
