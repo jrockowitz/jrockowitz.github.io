@@ -9,8 +9,9 @@
   "license": "GPL-3.0",
   "dependencies": {
     "bootstrap-sass-official": "3.3.5",
+    "enquire": "2.1.2",
+    "font-awesome": "4.4.0",
     "jquery": "2.1.4",
-    "jquery.equal-height": "1.0.1",
-    "enquire": "2.1.2"
+    "jquery.equal-height": "1.0.1"
   }
 }

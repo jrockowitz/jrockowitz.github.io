@@ -13,6 +13,7 @@
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "*",
     "grunt-contrib-copy": "*",
+    "grunt-contrib-cssmin": "*",
     "grunt-contrib-uglify": "*",
     "grunt-exec": "*",
     "grunt-responsive-images" : "*"

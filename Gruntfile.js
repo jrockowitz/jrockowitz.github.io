@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     // Get project configuration from package.json.
     pkg: require('./package.json'),
     concat: {
-      dist: {
+      js: {
         src: [
           'bower_components/jquery/jquery.js',
           'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
@@ -13,10 +13,17 @@ module.exports = function(grunt) {
           'js/vendor/jquery.mobile.custom/jquery.mobile.custom.js'
         ],
         dest: 'assets/js/vendor.js'
+      },
+      css: {
+        src: [
+          'bower_components/font-awesome/css/font-awesome.css',
+        ],
+        dest: 'assets/css/vendor.css'
       }
+
     },
     copy: {
-      fonts: {
+      "bootstrap-fonts": {
         files: [
           {
             expand: true,
@@ -25,6 +32,29 @@ module.exports = function(grunt) {
             dest: 'fonts'
           }
         ]
+      },
+      "font-awesome-fonts": {
+        files: [
+          {
+            expand: true,
+            cwd: 'bower_components/font-awesome/fonts',
+            src: ['**', '.**'],
+            dest: 'assets/fonts'
+          }
+        ]
+      }
+    },
+    cssmin: {
+      options: {
+        shorthandCompacting: false,
+        roundingPrecision: -1
+      },
+      target: {
+        files: {
+          'assets/css/vendor.min.css': [
+            'assets/css/vendor.css'
+          ]
+        }
       }
     },
     uglify: {
@@ -35,6 +65,7 @@ module.exports = function(grunt) {
         }
       }
     },
+
     responsive_images: {
       thumbnails: {
         options: {
@@ -76,11 +107,13 @@ module.exports = function(grunt) {
 
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-responsive-images');
 
-  grunt.registerTask('build', [ 'copy', 'concat', 'uglify', 'responsive_images']);
+  grunt.registerTask('build', [ 'copy', 'concat', 'cssmin', 'uglify', 'responsive_images']);
   grunt.registerTask('default', [ 'build', 'exec:build' ]);
   grunt.registerTask('serve', [ 'build', 'exec:serve' ]);
   grunt.registerTask('deploy', [ 'default', 'exec:deploy' ]);

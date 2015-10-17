@@ -19,6 +19,7 @@ permalink: /readme/
 - [Grunt](http://gruntjs.com/)
     - [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat)
     - [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy)
+    - [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin)
     - [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify)
     - [grunt-exec](https://github.com/jharding/grunt-exec)
     - [grunt-responsive-images](https://github.com/andismith/grunt-responsive-images)
@@ -28,6 +29,7 @@ permalink: /readme/
 - [jQuery Mobile](https://jquerymobile.com/)
   - [Events](https://api.jquerymobile.com/category/events/): Touch 
 - [enquire.js](wicky.nillia.ms/enquire.js/)
+- [Font Awesome](https://fortawesome.github.io/Font-Awesome/)
 
 ## TODO
 
