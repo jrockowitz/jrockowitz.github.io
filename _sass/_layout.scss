@@ -47,7 +47,6 @@ body {
 .page {
   max-width: $screen-sm;
   margin: 0 auto;
-
   >.page-header {
     margin-top: 0;
     border-bottom-width: 4px;
@@ -57,6 +56,9 @@ body {
         white-space: nowrap;
       }
     }
+  }
+  .page-download {
+    float: right;
   }
 }
 
