@@ -53,9 +53,9 @@
   $('a[href$=".png"], a[href$=".jpg"]').click(function(event) {
     var $img = $(this).find('img');
     var title = $(this).attr('title') || ($img.length) ? ($img.attr('title') || $img.attr('alt')) : '';
-    $('#modal-image img').attr('src', $(this).attr('href'));
-    $('#modal-image h4').html(title);
-    $('#modal-image').modal('show');
+    $('#modal-lightbox img').attr('src', $(this).attr('href'));
+    $('#modal-lightbox h4').html(title);
+    $('#modal-lightbox').modal('show');
     event.preventDefault();
   });
 
