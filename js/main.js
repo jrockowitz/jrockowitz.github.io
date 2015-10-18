@@ -3,6 +3,7 @@
  * Javascript Behaviors
  */
 
+/* http://jshint.com/docs/ */
 /* global enquire */
 
 (function ($, enquire) {
