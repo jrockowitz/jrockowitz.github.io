@@ -19,7 +19,9 @@ permalink: /readme/
 - [Grunt](http://gruntjs.com/)
     - [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat)
     - [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy)
+    - [grunt-contrib-csslint](https://github.com/gruntjs/grunt-contrib-csslint)
     - [grunt-contrib-cssmin](https://github.com/gruntjs/grunt-contrib-cssmin)
+    - [grunt-contrib-jshint](https://github.com/gruntjs/grunt-contrib-jshint)
     - [grunt-contrib-uglify](https://github.com/gruntjs/grunt-contrib-uglify)
     - [grunt-exec](https://github.com/jharding/grunt-exec)
     - [grunt-responsive-images](https://github.com/andismith/grunt-responsive-images)
@@ -240,4 +242,13 @@ open http://jrockowitz.github.io/readme
 - <http://loremflickr.com/>
     - <http://loremflickr.com/320/240>
 
+### Coding Guidelines/Standards
+
+- [Code guidelines: Bootstrap](https://github.com/twbs/bootstrap/blob/master/CONTRIBUTING.md#code-guidelines)
+- [Code Guide (HTML and CSS)](http://codeguide.co)
+
 ---  
+
+## TODO
+
+- Editorial cleanup

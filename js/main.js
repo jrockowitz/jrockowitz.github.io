@@ -3,7 +3,9 @@
  * Javascript Behaviors
  */
 
-(function ($) {
+/* global enquire */
+
+(function ($, enquire) {
 
   "use strict";
 
@@ -16,7 +18,7 @@
     xs: {width: 480},
     sm: {width: 768},
     md: {width: 992},
-    lg: {width: 1200},
+    lg: {width: 1200}
   };
 
   /**
@@ -87,6 +89,6 @@
   }
 
 
-})(jQuery);
+})(jQuery, enquire);
 
 

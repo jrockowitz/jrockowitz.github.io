@@ -38,6 +38,14 @@ module.exports = function(grunt) {
         ]
       }
     },
+    csslint: {
+      options: {
+        csslintrc: 'css/.csslintrc'
+      },
+      dist: [
+        '_site/css/main.css'
+      ]
+    },
     cssmin: {
       dist: {
         files: {
@@ -45,6 +53,14 @@ module.exports = function(grunt) {
             '_site/css/main.css'
           ]
         }
+      }
+    },
+    jshint: {
+      options: {
+        jshintrc: 'js/.jshintrc'
+      },
+      dist: {
+        src: 'js/main.js'
       }
     },
     uglify: {
@@ -108,14 +124,17 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-concat');
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-exec');
   grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-sed');
 
   grunt.registerTask('build', [ 'copy', 'concat', 'cssmin', 'uglify', 'responsive_images', 'sed:dev']);
-  grunt.registerTask('default', [ 'build', 'exec:build' ]);
-  grunt.registerTask('serve', [ 'build', 'exec:serve' ]);
-  grunt.registerTask('deploy', [ 'default', 'sed:prod', 'exec:deploy' ]);
+  grunt.registerTask('test', [ 'csslint', 'jshint' ]);
+  grunt.registerTask('default', [ 'build', 'test', 'exec:build' ]);
+  grunt.registerTask('serve', [ 'build', 'test', 'exec:serve' ]);
+  grunt.registerTask('deploy', [ 'default', 'test', 'sed:prod', 'exec:deploy' ]);
 
 };

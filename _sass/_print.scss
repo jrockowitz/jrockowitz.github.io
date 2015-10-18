@@ -3,7 +3,7 @@
  */
 
 @media print {
-  a.print-hide-href[href]:after {
-      content: "";
+  .print-hide-href:after {
+      content: "" !important;
   }
 }

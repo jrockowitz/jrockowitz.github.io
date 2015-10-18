@@ -31,4 +31,4 @@ exclude:
   - node_modules
 
 # Environments in Jekyll - http://www.petethompson.net/blog/web/2015/02/28/environments-in-jekyll/
-environment: production
+environment: development
