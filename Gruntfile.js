@@ -10,9 +10,10 @@ module.exports = function(grunt) {
           'bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js',
           'bower_components/jquery.equal-height/jquery.equal-height.js',
           'bower_components/enquire/dist/enquire.js',
-          'vendor/jquery.mobile.custom/jquery.mobile.custom.js'
+          'vendor/jquery.mobile.custom/jquery.mobile.custom.js',
+          'js/main.js',
         ],
-        dest: 'js/vendor.js'
+        dest: 'js/main.min.js'
       },
     },
     copy: {
@@ -49,8 +50,7 @@ module.exports = function(grunt) {
     uglify: {
       dist: {
         files: {
-          'js/vendor.min.js': 'js/vendor.js',
-          'js/main.min.js': 'js/main.js'
+          'js/main.min.js': 'js/main.min.js'
         }
       }
     },
