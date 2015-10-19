@@ -10,7 +10,7 @@ permalink: /readme/
 - URL: <http://jrockowitz.github.io/> or <http://thebigbluehouse.com/>
 - GIT: <https://github.com/jrockowitz/jrockowitz.github.io>
 - Style-Guide: [http://jrockowitz.github.io/style-guide/](/style-guide/)
-
+- Analytics: <https://www.google.com/analytics/web/> 
 --- 
 
 ### Software/Libraries
@@ -222,6 +222,8 @@ open http://jrockowitz.github.io/readme
 - [Tips](http://jekyll.tips/)
 - [Pagination](http://jekyllrb.com/docs/pagination/)
 - [Photo Gallery](http://jekyll.tips/guide/photo-gallery/)
+- [Creating a fast and mobile-friendly website with Jekyll](http://nicolashery.com/fast-mobile-friendly-website-with-jekyll/)
+- [Todo/check list for a new jekyll blog](http://gustavepate.github.io/blog/20130718/todo-check-list-jekyll-blog/)
 
 ### [Liquid for Designers](https://github.com/shopify/liquid/wiki/Liquid-for-Designers)
 
