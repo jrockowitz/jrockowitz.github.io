@@ -12,7 +12,7 @@ collections:
     title: Work
     output: true
 
-# Default settings
+# Defaults
 defaults:
   - scope:
       path: ""
@@ -24,20 +24,17 @@ defaults:
     values:
       layout: "page"
 
-# Build settings.
+# Build
 markdown: kramdown
 
-# Include hidden directories.
+# Include hidden directories
 include:
   - _pages
 
-# Exclude directories and files
+# Exclude directories
 exclude:
   - _misc
   - node_modules
-
-# Environments in Jekyll - http://www.petethompson.net/blog/web/2015/02/28/environments-in-jekyll/
-environment: production
 
 # Gem (for GitHub Pages)
 gems:
@@ -45,3 +42,6 @@ gems:
   - jekyll-sitemap
   # Redirects on GitHub Pages - https://help.github.com/articles/redirects-on-github-pages/
   - jekyll-redirect-from
+
+# Environments in Jekyll - http://www.petethompson.net/blog/web/2015/02/28/environments-in-jekyll/
+environment: production
