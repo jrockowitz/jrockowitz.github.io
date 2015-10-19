@@ -16,6 +16,9 @@ permalink: /readme/
 ### Software/Libraries
 
 - [Jeykyll](https://jekyllrb.com/)
+    - [Jekyll Redirect From Plugin](https://github.com/jekyll/jekyll-redirect-from)
+    - [Jekyll Sitemap Generator Plugin](https://github.com/jekyll/jekyll-sitemap)
+- [github / pages-gem](https://github.com/github/pages-gem)
 - [Grunt](http://gruntjs.com/)
     - [grunt-contrib-concat](https://github.com/gruntjs/grunt-contrib-concat)
     - [grunt-contrib-copy](https://github.com/gruntjs/grunt-contrib-copy)
@@ -196,6 +199,12 @@ open http://jrockowitz.github.io/readme
 ### Adjust Styles using Variables and CSS overrides
 
 - <https://github.com/twbs/bootstrap-sass/blob/master/assets/stylesheets/bootstrap/_variables.scss>
+
+### SEO
+
+- [Sitemaps for GitHub Pages](https://help.github.com/articles/sitemaps-for-github-pages/)
+- [Redirects on GitHub Pages](https://help.github.com/articles/redirects-on-github-pages/)
+- [How to add Google Analytics Tracking ID to GitHub Pages](stackoverflow.com/questions/17207458/how-to-add-google-analytics-tracking-id-to-github-pages)
 
 --- 
 
