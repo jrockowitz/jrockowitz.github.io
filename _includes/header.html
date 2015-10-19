@@ -12,7 +12,7 @@
       </div>
       <div class="collapse navbar-collapse" id="myNavbar">
 
-        <ul class="nav navbar-nav">
+        <ul class="nav navbar-nav navbar-right">
           {% for node in site.data.pages %}
             {% if node.links or node.collection %}
               <li class="dropdown{% if page.url == node.url %} active"{% endif %}">
