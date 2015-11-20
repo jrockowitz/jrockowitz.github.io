@@ -20,11 +20,11 @@
       icon: 'fa fa-file-o'
       separator: true
     - title: PDF
-      url: https://docs.google.com/document/d/1AEP9K9wmwNnAkoop6mNhAaX9IjKu7UWqQYOwOUvOwgE/export?format=pdf&id=1AEP9K9wmwNnAkoop6mNhAaX9IjKu7UWqQYOwOUvOwgE&tfe=yo_253
+      url: https://docs.google.com/document/d/13A8WMTWjfnOwWhFAX2qQunaD4XpD0YTzCkwQ7kQuPx4/export?format=pdf&id=1AEP9K9wmwNnAkoop6mNhAaX9IjKu7UWqQYOwOUvOwgE&tfe=yo_253
       icon: 'fa fa-file-pdf-o'
     - title: Google Doc
       icon: 'fa fa-google'
-      url: https://docs.google.com/document/d/1AEP9K9wmwNnAkoop6mNhAaX9IjKu7UWqQYOwOUvOwgE/edit?pli=1
+      url: https://docs.google.com/document/d/13A8WMTWjfnOwWhFAX2qQunaD4XpD0YTzCkwQ7kQuPx4/edit
 
 - title: Work
   icon: 'fa fa-terminal'
