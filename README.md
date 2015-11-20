@@ -11,6 +11,7 @@ permalink: /readme/
 - GIT: <https://github.com/jrockowitz/jrockowitz.github.io>
 - Style-Guide: [http://jrockowitz.github.io/style-guide/](/style-guide/)
 - Analytics: <https://www.google.com/analytics/web/> 
+
 --- 
 
 ### Software/Libraries
