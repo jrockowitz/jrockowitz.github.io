@@ -96,6 +96,11 @@ module.exports = function(grunt) {
       }
     },
     sed: {
+      css: {
+        path: '_site/css/main.css',
+        pattern: ': 0%;',
+        replacement: ': 0;'
+      },
       dev: {
         path: '_config.yml',
         pattern: 'environment: production',
@@ -131,7 +136,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-responsive-images');
   grunt.loadNpmTasks('grunt-sed');
 
-  grunt.registerTask('build', [ 'copy', 'concat', 'cssmin', 'uglify', 'responsive_images', 'sed:dev']);
+  grunt.registerTask('build', [ 'copy', 'concat', 'sed:css', 'cssmin', 'uglify', 'responsive_images', 'sed:dev']);
   grunt.registerTask('test', [ 'csslint', 'jshint' ]);
   grunt.registerTask('default', [ 'build', 'test', 'exec:build' ]);
   grunt.registerTask('serve', [ 'build', 'test', 'exec:serve' ]);
