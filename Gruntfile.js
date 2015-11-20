@@ -96,6 +96,7 @@ module.exports = function(grunt) {
       }
     },
     sed: {
+      // Fixes CSS Lint: WARNING: Values of 0 shouldn't have units specified.
       css: {
         path: '_site/css/main.css',
         pattern: ': 0%;',
