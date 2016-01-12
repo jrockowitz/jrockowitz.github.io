@@ -65,7 +65,7 @@ cd local.jrockowitz.github.io
 git add --all
 git commit -am"Boilerplate Jekyll site"
 git push
-open http://http://jrockowitz.github.io/
+open http://jrockowitz.github.io/
 # Refresh browser until GitHub regenerates your website.
 ~~~
 
