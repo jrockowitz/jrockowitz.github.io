@@ -24,7 +24,7 @@
       icon: 'fa fa-file-pdf-o'
     - title: Google Doc
       icon: 'fa fa-google'
-      url: https://docs.google.com/document/d/13A8WMTWjfnOwWhFAX2qQunaD4XpD0YTzCkwQ7kQuPx4/edit
+      url: https://docs.google.com/document/d/13A8WMTWjfnOwWhFAX2qQunaD4XpD0YTzCkwQ7kQuPx4/edit?usp=sharing
 
 - title: Work
   icon: 'fa fa-terminal'
