@@ -34,7 +34,7 @@
       url: /work/
       icon: 'fa fa-terminal'
       separator: true
-  collection: work
+  collection: 1 # Work 
 
 - title: Contact
   icon: 'glyphicon glyphicon-phone-alt'

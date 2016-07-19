@@ -37,7 +37,7 @@
 
                 {% if node.collection %}
                   {% assign collection = node.collection %}
-                  {% for link in site.collections.[collection].docs %}
+                  {% for link in site.collections[collection].docs %}
                      <li><a href="{{ link.url | prepend: site.baseurl }}">{{ link.short_title }}</a></li>
                   {% endfor %}
                 {% endif %}
